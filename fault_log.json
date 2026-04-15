@@ -1,0 +1,65 @@
+[
+    {
+        "cycle": 100,
+        "sensor_id": "sensor_14",
+        "fault_type": "sensor_failure",
+        "severity": 10.0,
+        "config": "qwen2.5:7b_only"
+    },
+    {
+        "cycle": 300,
+        "sensor_id": "sensor_7",
+        "fault_type": "operational_drift",
+        "drift_rate": 0.15,
+        "config": "qwen2.5:7b_only"
+    },
+    {
+        "cycle": 500,
+        "sensor_id": "sensor_11",
+        "fault_type": "sensor_failure",
+        "severity": 7.0,
+        "config": "qwen2.5:7b_only"
+    },
+    {
+        "cycle": 100,
+        "sensor_id": "sensor_14",
+        "fault_type": "sensor_failure",
+        "severity": 10.0,
+        "config": "phi3.5_only"
+    },
+    {
+        "cycle": 300,
+        "sensor_id": "sensor_7",
+        "fault_type": "operational_drift",
+        "drift_rate": 0.15,
+        "config": "phi3.5_only"
+    },
+    {
+        "cycle": 500,
+        "sensor_id": "sensor_11",
+        "fault_type": "sensor_failure",
+        "severity": 7.0,
+        "config": "phi3.5_only"
+    },
+    {
+        "cycle": 100,
+        "sensor_id": "sensor_14",
+        "fault_type": "sensor_failure",
+        "severity": 10.0,
+        "config": "consensus_qwen_phi"
+    },
+    {
+        "cycle": 300,
+        "sensor_id": "sensor_7",
+        "fault_type": "operational_drift",
+        "drift_rate": 0.15,
+        "config": "consensus_qwen_phi"
+    },
+    {
+        "cycle": 500,
+        "sensor_id": "sensor_11",
+        "fault_type": "sensor_failure",
+        "severity": 7.0,
+        "config": "consensus_qwen_phi"
+    }
+]

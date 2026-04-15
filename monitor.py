@@ -3,8 +3,10 @@ import numpy as np
 from scipy.stats import ks_2samp
 import os
 
+from experiment_config import FAULT_SCHEDULE
+
 class StreamingMonitor:
-    def __init__(self, data_path: str, reference_window_size: int = 50, current_window_size: int = 30, p_value_threshold: float = 0.05, step_size: int = 1):
+    def __init__(self, data_path: str, reference_window_size: int = 50, current_window_size: int = 30, p_value_threshold: float = 0.05, step_size: int = 1, multiple_testing_correction: bool = True):
         """
         Simulates streaming data from C-MAPSS dataset and monitors for statistical drift
         using the Kolmogorov-Smirnov test.
@@ -14,6 +16,8 @@ class StreamingMonitor:
         self.current_window_size = current_window_size
         self.p_value_threshold = p_value_threshold
         self.step_size = step_size
+        self.multiple_testing_correction = multiple_testing_correction
+        self.fault_log = []
         
         # C-MAPSS column names
         self.columns = ['unit_number', 'time_in_cycles', 'op_setting_1', 'op_setting_2', 'op_setting_3'] + \
@@ -61,9 +65,16 @@ class StreamingMonitor:
         std_val = self.data[sensor_id].std()
         fault_value = mean_val + (severity * std_val) if std_val > 0 else mean_val + 50.0
         
-        print(f"--- SENSOR FAILURE INJECTED on {sensor_id} from cycle {self.current_idx} onwards (val: {fault_value:.2f}) ---")
-        self.data.loc[self.current_idx:, sensor_id] = fault_value
+        cycle = int(self.current_idx)
+        print(f"--- SENSOR FAILURE INJECTED on {sensor_id} from cycle {cycle} onwards (val: {fault_value:.2f}) ---")
+        self.data.loc[cycle:, sensor_id] = fault_value
         self.current_fault_type = "sensor_failure"
+        self.fault_log.append({
+            "cycle": cycle,
+            "sensor_id": sensor_id,
+            "fault_type": "sensor_failure",
+            "severity": severity
+        })
 
     def inject_operational_drift(self, sensor_id: str, drift_rate: float = 0.1):
         """
@@ -75,6 +86,29 @@ class StreamingMonitor:
         self.data.loc[start:, sensor_id] = self.data.loc[start:, sensor_id].values + drift_values
         self.current_fault_type = "operational_drift"
         print(f"--- OPERATIONAL DRIFT INJECTED on {sensor_id} starting at cycle {start} with rate {drift_rate:.3f} ---")
+        self.fault_log.append({
+            "cycle": start,
+            "sensor_id": sensor_id,
+            "fault_type": "operational_drift",
+            "drift_rate": drift_rate
+        })
+
+    def run_fault_schedule(self, cycle: int):
+        """Checks FAULT_SCHEDULE and triggers injection if cycle matches."""
+        for fault in FAULT_SCHEDULE:
+            if cycle == fault["trigger_cycle"]:
+                if fault["fault_type"] == "sensor_failure":
+                    self.inject_sensor_failure(sensor_id=fault["sensor_id"], severity=fault.get("severity", 5.0))
+                elif fault["fault_type"] == "operational_drift":
+                    self.inject_operational_drift(sensor_id=fault["sensor_id"], drift_rate=fault.get("drift_rate", 0.1))
+
+    def get_ground_truth_label(self, cycle: int) -> str:
+        """Returns the active ground truth fault label for a given cycle."""
+        active_fault = "normal"
+        for event in sorted(self.fault_log, key=lambda x: x["cycle"]):
+            if event["cycle"] <= cycle:
+                active_fault = event["fault_type"]
+        return active_fault
 
     def inject_fault(self, sensor_id: str, severity: float = 5.0):
         """Compatibility wrapper for backwards compatibility with earlier fault injection logic."""
@@ -93,6 +127,13 @@ class StreamingMonitor:
         drift_detected = False
         sensor_p_values = {}
         
+        # Apply Bonferroni correction if enabled
+        threshold = self.p_value_threshold
+        if self.multiple_testing_correction:
+            threshold = self.p_value_threshold / len(self.sensor_cols)
+        else:
+            print("WARNING: Multiple testing correction (Bonferroni) is disabled.")
+            
         for sensor in self.sensor_cols:
             ref_data = reference_window[sensor].values
             curr_data = current_window[sensor].values
@@ -104,7 +145,7 @@ class StreamingMonitor:
                 
             sensor_p_values[sensor] = p_val
             
-            if p_val < self.p_value_threshold:
+            if p_val < threshold:
                 drift_detected = True
                 
         return {

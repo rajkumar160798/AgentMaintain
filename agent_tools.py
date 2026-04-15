@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 class TriageAction(BaseModel):
     reasoning: str = Field(description="The agent's reasoning for why a specific action was chosen based on p-value and SHAP features.")
     action: str = Field(description="The determined action. Must be either 'ISSUE_REPLACEMENT_TICKET' or 'RETRAIN_MODEL'.")
+    confidence: float = Field(default=0.5, ge=0.0, le=1.0, description="Model's self-assessed confidence in this triage action, between 0.0 and 1.0")
 
 class DummyModelCache:
     _model = None

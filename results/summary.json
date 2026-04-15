@@ -1,0 +1,35 @@
+{
+    "qwen2.5:7b_only": {
+        "overall_ecr": 0.7812,
+        "fault_ecr": 0.8046,
+        "normal_ecr": 0.5556,
+        "avg_latency_s": 5.8152,
+        "p95_latency_s": 7.5147,
+        "avg_vram_mb": 5088.74,
+        "avg_token_count": 75.4,
+        "total_decisions": 96,
+        "fault_decisions": 87
+    },
+    "phi3.5_only": {
+        "overall_ecr": 0.8646,
+        "fault_ecr": 0.9425,
+        "normal_ecr": 0.1111,
+        "avg_latency_s": 2.8519,
+        "p95_latency_s": 3.8968,
+        "avg_vram_mb": 4034.33,
+        "avg_token_count": 91.3,
+        "total_decisions": 96,
+        "fault_decisions": 87
+    },
+    "consensus_qwen_phi": {
+        "overall_ecr": 0.8125,
+        "fault_ecr": 0.8046,
+        "normal_ecr": 0.8889,
+        "avg_latency_s": 10.417,
+        "p95_latency_s": 9.7371,
+        "avg_vram_mb": 5289.29,
+        "avg_token_count": 172.9,
+        "total_decisions": 96,
+        "fault_decisions": 87
+    }
+}

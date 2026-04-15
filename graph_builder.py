@@ -6,6 +6,7 @@ import time
 
 from agent_tools import diagnose_with_shap, TriageAction, retrieve_maintenance_manuals
 from monitor import StreamingMonitor
+from experiment_config import EVALUATION_CONFIG
 
 # Define the State for LangGraph
 class AgentState(TypedDict):
@@ -21,6 +22,11 @@ class AgentState(TypedDict):
     manual_content: Optional[str]
     consensus: Optional[str]
     current_fault_type: Optional[str]
+    monitor_latency_s: Optional[float]
+    plan_latency_s: Optional[float]
+    shap_latency_s: Optional[float]
+    consensus_confidence: Optional[float]
+    winning_model: Optional[str]
 
 
 def build_graph(models: Optional[List[str]] = None, step_size: int = 20):
@@ -45,12 +51,14 @@ def build_graph(models: Optional[List[str]] = None, step_size: int = 20):
 
     def monitor_data_node(state: AgentState):
         """Monitors the stream and detects drift."""
+        start_t = time.perf_counter()
         print("---NODE: monitor_data---")
 
         result = monitor.detect_drift()
+        elapsed = time.perf_counter() - start_t
 
         if result["status"] == "end_of_stream":
-            return {"drift_detected": False, "messages": ["End of data stream reached."]}
+            return {"drift_detected": False, "messages": ["End of data stream reached."], "monitor_latency_s": elapsed}
 
         drift_detected = result["drift_detected"]
         p_values = result.get("p_values", {})
@@ -72,42 +80,57 @@ def build_graph(models: Optional[List[str]] = None, step_size: int = 20):
             "current_idx": result["current_idx"],
             "manual_content": None,
             "consensus": None,
-            "current_fault_type": current_fault_type
+            "current_fault_type": current_fault_type,
+            "monitor_latency_s": elapsed
         }
 
     def plan_node(state: AgentState):
         """Fetches relevant maintenance guidance before diagnosis."""
+        start_t = time.perf_counter()
         print("---NODE: plan---")
         manual_content = retrieve_maintenance_manuals.invoke({"query": "sensor failure vs operational drift"})
-        return {"manual_content": manual_content}
+        elapsed = time.perf_counter() - start_t
+        return {"manual_content": manual_content, "plan_latency_s": elapsed}
 
     def diagnose_drift_node(state: AgentState):
         """Diagnoses the drift using SHAP values."""
+        start_t = time.perf_counter()
         print("---NODE: diagnose_drift---")
 
         current_data = state["current_data"]
         shap_vals = diagnose_with_shap.invoke({"sensor_data": current_data})
 
+        elapsed = time.perf_counter() - start_t
         print("SHAP Diagnosis completed.")
-        return {"shap_values": shap_vals}
+        return {"shap_values": shap_vals, "shap_latency_s": elapsed}
 
     def run_consensus(llms: Dict[str, Any], prompt: str):
         decisions = []
         reasonings = []
+        confidences = []
+        model_names = []
         total_latency = 0.0
 
         for model_name, structured_llm in llms.items():
-            try:
-                start = time.time()
-                result = structured_llm.invoke(prompt)
-                latency = time.time() - start
-                total_latency += latency
-                decisions.append(result.action)
-                reasonings.append(f"[{model_name}] {result.reasoning}")
-                print(f"{model_name} -> action: {result.action} | latency: {latency:.2f}s")
-            except Exception as exc:
-                print(f"Warning: Skipping response from '{model_name}' due to invocation error: {exc}")
-                continue
+            success = False
+            for attempt in range(EVALUATION_CONFIG["llm_retries"]):
+                try:
+                    start_t = time.perf_counter()
+                    result = structured_llm.invoke(prompt)
+                    latency = time.perf_counter() - start_t
+                    total_latency += latency
+                    decisions.append(result.action)
+                    reasonings.append(f"[{model_name}] {result.reasoning}")
+                    confidences.append(result.confidence)
+                    model_names.append(model_name)
+                    print(f"{model_name} -> action: {result.action} | confidence: {result.confidence:.2f} | latency: {latency:.2f}s")
+                    success = True
+                    break
+                except Exception as exc:
+                    print(f"Warning: Retry {attempt+1}/{EVALUATION_CONFIG['llm_retries']} for '{model_name}': {exc}")
+                    time.sleep(EVALUATION_CONFIG["retry_backoff_base"] ** attempt)
+            if not success:
+                print(f"Error: Skipping model '{model_name}' after {EVALUATION_CONFIG['llm_retries']} failures.")
 
         if not decisions:
             raise RuntimeError("All model invocations failed during consensus.")
@@ -117,11 +140,28 @@ def build_graph(models: Optional[List[str]] = None, step_size: int = 20):
             vote_counts[action] = vote_counts.get(action, 0) + 1
 
         consensus_action = max(vote_counts, key=vote_counts.get)
-        if len(decisions) > 1 and vote_counts[consensus_action] == 1:
-            consensus_action = "RETRAIN_MODEL"
-            reasonings.append("Consensus fallback to RETRAIN_MODEL due to disagreement.")
+        winning_model = None
+        consensus_confidence = None
 
-        return consensus_action, reasonings, total_latency / len(decisions)
+        if len(decisions) > 1 and vote_counts[consensus_action] == 1:
+            max_conf_idx = confidences.index(max(confidences))
+            if confidences.count(max(confidences)) > 1:
+                consensus_action = "RETRAIN_MODEL"
+                reasonings.append("Consensus fallback to RETRAIN_MODEL due to identical confidences.")
+            else:
+                consensus_action = decisions[max_conf_idx]
+                winning_model = model_names[max_conf_idx]
+                consensus_confidence = confidences[max_conf_idx]
+                reasonings.append(f"Consensus resolved by confidence: {winning_model} ({consensus_confidence:.2f}) -> {consensus_action}")
+        else:
+            best_conf = -1
+            for idx, action in enumerate(decisions):
+                if action == consensus_action and confidences[idx] > best_conf:
+                    best_conf = confidences[idx]
+                    winning_model = model_names[idx]
+                    consensus_confidence = confidences[idx]
+
+        return consensus_action, reasonings, total_latency / len(decisions), consensus_confidence, winning_model
 
     def execute_action_node(state: AgentState):
         """Uses multi-model consensus to choose a final action."""
@@ -155,14 +195,16 @@ Triage Rules:
 Reply with concise reasoning and one of these exact actions: ISSUE_REPLACEMENT_TICKET or RETRAIN_MODEL.
 """
 
-        consensus_action, reasonings, avg_latency = run_consensus(structured_llms, prompt)
+        consensus_action, reasonings, avg_latency, consensus_confidence, winning_model = run_consensus(structured_llms, prompt)
         final_reasoning = "\n---\n".join(reasonings)
 
         return {
             "action_decision": consensus_action,
             "reasoning": final_reasoning,
             "llm_latency": avg_latency,
-            "consensus": consensus_action
+            "consensus": consensus_action,
+            "consensus_confidence": consensus_confidence,
+            "winning_model": winning_model
         }
 
     def route_drift(state: AgentState):

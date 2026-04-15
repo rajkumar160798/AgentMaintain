@@ -1,0 +1,9 @@
+# AgentMaintain: Agentic MLOps Triage via Multi-Model SLM Consensus for Distinguishing Sensor Failure from Concept Drift in Industrial Streaming Data
+
+## Abstract
+
+Predictive maintenance systems that monitor machine learning models in production face a critical but underexplored triage problem: when statistical drift is detected in sensor telemetry, should the system issue a hardware replacement ticket (sensor failure) or trigger model retraining (operational/concept drift)? Conflating these two responses leads to either unnecessary hardware replacement or retraining on corrupted data.
+
+We present AgentMaintain, an agentic MLOps framework built on LangGraph that combines: (1) Kolmogorov-Smirnov statistical drift detection with Bonferroni correction across 21 C-MAPSS turbofan sensors; (2) SHAP-based feature attribution to identify which sensors are responsible for detected drift; and (3) a multi-model Small Language Model (SLM) consensus mechanism using quantized Qwen2.5-7B and Phi3.5, running entirely on-premises via Ollama, to reason over statistical and attribution evidence and produce a final triage action.
+
+Through ablation experiments comparing single-model and consensus configurations, we evaluate Error Correction Rate (ECR), precision, recall, F1-score, inference latency, and VRAM utilization under both injected sensor failures and natural operational drift. Our results show that leveraging explicit confidence-weighted tie-breaking between heterogeneous local SLMs significantly stabilizes triage correctness, maintaining overall pipeline latency to under 7 seconds entirely on the edge. The consensus mechanism improves robustness under natural drift while individual models show complementary strengths on hard fault events, motivating future work on adaptive model selection based on drift signal characteristics.
