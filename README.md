@@ -1,44 +1,44 @@
 # AgentMaintain
 
-AgentMaintain is an experimental Python project for simulating an agentic predictive maintenance pipeline using the NASA C-MAPSS turbofan engine dataset. It combines streaming drift detection, SHAP explainability, structured agent decision-making, and lightweight evaluation instrumentation.
+AgentMaintain is a prototype for autonomous drift triage and root-cause analysis using multi-model consensus. The project demonstrates how an agent can go beyond a binary retrain trigger and decide whether an observed anomaly indicates a sensor failure or an operational/environmental shift.
 
 ## Project Overview
 
-This repository demonstrates an end-to-end maintenance agent workflow:
+This repository implements a practical version of the "Agentic Drift-Triage" concept:
 
-- `monitor.py` simulates streaming sensor telemetry from the C-MAPSS dataset and detects drift using the Kolmogorov-Smirnov test.
-- `agent_tools.py` defines a SHAP diagnostic tool with a dummy RandomForest model to identify which sensors are driving the anomaly.
-- `graph_builder.py` constructs a state graph pipeline where the agent monitors data, diagnoses drift, and uses an LLM to decide between actionable responses.
-- `main.py` runs a short simulation that steps through the stream, injects faults periodically, and prints final triage actions.
-- `monitor.py` also contains evaluation utilities to compare multiple model backends and track performance metrics, VRAM, and traces.
+- `monitor.py` simulates a streaming C-MAPSS sensor feed and detects drift using KS-tests.
+- `agent_tools.py` provides SHAP explainability and a retrieval-style maintenance manual tool.
+- `graph_builder.py` builds a Plan-Diagnose-Act workflow with multi-model SLM consensus.
+- `main.py` runs a simulation that injects synthetic sensor faults and routes decisions through the agent.
+- `monitor.py` also contains evaluation utilities for tracking performance, latency, VRAM, and action traces.
 
-## Key Concepts
+## What This Repo Adds
 
-- Streaming drift detection: continuous data windows are compared against a reference baseline using KS-tests.
-- SHAP explainability: feature importance is computed for the current sensor vector to support diagnostic reasoning.
-- Agent orchestration: a LangGraph state graph orchestrates monitoring, diagnosis, and action execution.
-- Structured output: LLM responses are constrained to a defined schema (`TriageAction`) for predictable actions.
+- Multi-model consensus by querying multiple LLM backends and selecting the action with majority agreement.
+- RAG-inspired maintenance guidance through a local retrieval tool with sensor failure and operational drift descriptions.
+- Sensor failure injection and operational drift injection support in the streaming monitor.
+- A more explicit Plan-Diagnose-Act cycle in the graph workflow.
 
 ## Repository Structure
 
 - `main.py` - primary simulation entrypoint for the AgentMaintain orchestrator.
-- `agent_tools.py` - SHAP diagnostic tool and dummy model training helper.
-- `monitor.py` - `StreamingMonitor` implementation and ablation/evaluation runner.
-- `graph_builder.py` - graph workflow assembly that wires monitoring, diagnosis, and LLM triage.
-- `evaluator.py` - helper for evaluation metrics and result summarization.
-- `agent_tools.py` - tool definitions used in the agent workflow.
+- `agent_tools.py` - SHAP diagnosis plus retrieval-based maintenance guidance supporting the agent.
+- `monitor.py` - streaming monitor implementation with fault injection and drift detection.
+- `graph_builder.py` - builds a LangGraph workflow with multi-model consensus.
+- `evaluator.py` - evaluation metric collection and plotting utilities.
 - `requirements.txt` - Python dependencies.
 - `data/CMAPSSData/` - local dataset files (ignored by Git via `.gitignore`).
 - `plots/` - generated evaluation plots.
 - `traces.json` - serialized execution traces.
-- `evaluation_metrics.csv` - collected performance metrics.
+- `evaluation_metrics.csv` - collected evaluation metrics.
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.10+ recommended
-- GPU support is optional, but `pynvml` is used for VRAM tracking if available.
+- A working Ollama installation with at least one of the supported models (`qwen2.5:7b`, `llama3.1:8b`, or similar)
+- The default code attempts both `qwen2.5:7b` and `llama3.1:8b`, but missing models are skipped automatically.
 - The `data/CMAPSSData/` folder must contain the C-MAPSS dataset files, especially `train_FD001.txt`.
 
 ### Install Dependencies
@@ -48,8 +48,6 @@ python -m pip install -r requirements.txt
 ```
 
 ### Recommended Environment
-
-Use a virtual environment to isolate dependencies:
 
 ```powershell
 python -m venv .venv
@@ -65,7 +63,7 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
-This starts the orchestrator, loads the C-MAPSS stream, injects synthetic faults at regular intervals, and prints the agent's triage decisions.
+This starts the orchestrator, streams the C-MAPSS dataset, injects synthetic faults periodically, and prints the agent's final triage actions.
 
 ### Run Evaluation / Ablation
 
@@ -73,27 +71,25 @@ This starts the orchestrator, loads the C-MAPSS stream, injects synthetic faults
 python monitor.py
 ```
 
-This executes the `run_ablation()` path, evaluates multiple models, records metrics to `evaluation_metrics.csv`, saves traces to `traces.json`, and writes plots under `plots/`.
+This evaluates multiple model backends, saves action traces to `traces.json`, writes metrics to `evaluation_metrics.csv`, and generates plots under `plots/`.
 
 ## Configuration
 
-- `graph_builder.py` uses `data/CMAPSSData/train_FD001.txt` by default.
-- `monitor.py` uses the same default dataset path and supports changing `step_size`, `max_loops`, and fault injection logic.
-- `.gitignore` now includes `data/` so local dataset files are not committed.
+- `graph_builder.py` defaults to multi-model consensus and uses `data/CMAPSSData/train_FD001.txt`.
+- `monitor.py` supports both `inject_sensor_failure()` and `inject_operational_drift()`.
+- `.gitignore` includes `data/` so your local dataset files remain out of source control.
 
 ## Notes
 
-- The SHAP diagnostic tool uses a dummy `RandomForestRegressor` trained on the first training file and a placeholder target (`time_in_cycles`).
-- The agent action logic in `graph_builder.py` is intentionally simplified for demo purposes:
-  - `ISSUE_REPLACEMENT_TICKET` for localized sensor faults
-  - `RETRAIN_MODEL` for broad drift across multiple sensors
-- The LLM backend is configured via `langchain_ollama.ChatOllama` and requires the appropriate model to be available.
+- The SHAP diagnostic tool is trained on a lightweight RandomForest and serves as a proxy explainability module.
+- The workflow now includes a planning phase that retrieves relevant maintenance guidance before diagnosis.
+- Consensus logic prefers majority action; if models disagree strongly, the fallback is `RETRAIN_MODEL`.
 
 ## Troubleshooting
 
-- If `train_FD001.txt` is not found, verify the `data/CMAPSSData/` path and file names.
-- If the LLM backend fails, confirm the `ChatOllama` model name and local Ollama installation.
-- If VRAM tracking fails, the code falls back gracefully when `pynvml` cannot initialize.
+- If `train_FD001.txt` is not found, verify the `data/CMAPSSData/` folder and file list.
+- If Ollama model loading fails, confirm the model names and installation.
+- If consensus does not behave as expected, inspect `graph_builder.py` and the contained prompt guidance.
 
 ## License
 

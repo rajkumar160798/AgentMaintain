@@ -6,16 +6,14 @@ def main():
     print("Monitoring C-MAPSS data stream for feature drift...")
     print("--------------------------------------------------")
     
-    app, monitor = build_graph(model_name="qwen2.5:7b", step_size=20)
+    app, monitor = build_graph(models=["qwen2.5:7b", "llama3.1:8b"], step_size=20)
     
     loop_count = 0
     max_loops = 100 
     
     while loop_count < max_loops:
-        # Check current index to inject fault every 100 baseline cycles
-        # Note: Depending on where current_idx is initialized, we handle safety.
         if monitor.current_idx and int(monitor.current_idx) > 0 and (int(monitor.current_idx) % 100 == 0):
-            monitor.inject_fault(sensor_id="sensor_14", severity=10.0)
+            monitor.inject_sensor_failure(sensor_id="sensor_14", severity=10.0)
 
         initial_state = {
             "current_data": {},
@@ -26,7 +24,10 @@ def main():
             "messages": [],
             "reasoning": None,
             "llm_latency": None,
-            "current_idx": None
+            "current_idx": None,
+            "manual_content": None,
+            "consensus": None,
+            "current_fault_type": None
         }
         
         result = app.invoke(initial_state)

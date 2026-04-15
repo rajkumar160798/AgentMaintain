@@ -22,6 +22,7 @@ class StreamingMonitor:
         self.data = self._load_data()
         self.current_idx = self.reference_window_size + self.current_window_size
         self.max_idx = len(self.data)
+        self.current_fault_type = None
         
         # Sensor columns to monitor (all 21)
         self.sensor_cols = [f'sensor_{i}' for i in range(1, 22)]
@@ -40,31 +41,44 @@ class StreamingMonitor:
             # We reached the end of the stream
             return None, None
             
-        # Get reference window (baseline data)
         ref_start = self.current_idx - self.current_window_size - self.reference_window_size
         ref_end = self.current_idx - self.current_window_size
         reference_window = self.data.iloc[ref_start:ref_end]
         
-        # Get current window (new streaming data)
         curr_start = self.current_idx - self.current_window_size
         curr_end = self.current_idx
         current_window = self.data.iloc[curr_start:curr_end]
         
-        # Advance index to simulate streaming
         self.current_idx += self.step_size
         
         return reference_window, current_window
 
-    def inject_fault(self, sensor_id: str, severity: float = 5.0):
+    def inject_sensor_failure(self, sensor_id: str, severity: float = 5.0):
         """
-        Injects a massive point fault into the streaming data for the remainder of the stream.
+        Injects a stuck-at-constant sensor failure into the streaming data for the remainder of the stream.
         """
         mean_val = self.data[sensor_id].mean()
         std_val = self.data[sensor_id].std()
         fault_value = mean_val + (severity * std_val) if std_val > 0 else mean_val + 50.0
         
-        print(f"--- FAULT INJECTED on {sensor_id} from cycle {self.current_idx} onwards (val: {fault_value:.2f}) ---")
+        print(f"--- SENSOR FAILURE INJECTED on {sensor_id} from cycle {self.current_idx} onwards (val: {fault_value:.2f}) ---")
         self.data.loc[self.current_idx:, sensor_id] = fault_value
+        self.current_fault_type = "sensor_failure"
+
+    def inject_operational_drift(self, sensor_id: str, drift_rate: float = 0.1):
+        """
+        Injects a gradual operational drift in a specific sensor signal.
+        """
+        start = int(self.current_idx)
+        drift_len = len(self.data) - start
+        drift_values = drift_rate * np.arange(drift_len)
+        self.data.loc[start:, sensor_id] = self.data.loc[start:, sensor_id].values + drift_values
+        self.current_fault_type = "operational_drift"
+        print(f"--- OPERATIONAL DRIFT INJECTED on {sensor_id} starting at cycle {start} with rate {drift_rate:.3f} ---")
+
+    def inject_fault(self, sensor_id: str, severity: float = 5.0):
+        """Compatibility wrapper for backwards compatibility with earlier fault injection logic."""
+        self.inject_sensor_failure(sensor_id=sensor_id, severity=severity)
 
     def detect_drift(self):
         """
@@ -83,11 +97,10 @@ class StreamingMonitor:
             ref_data = reference_window[sensor].values
             curr_data = current_window[sensor].values
             
-            # Avoid KS-test error if data is perfectly constant
             if len(np.unique(ref_data)) == 1 and len(np.unique(curr_data)) == 1 and ref_data[0] == curr_data[0]:
                 p_val = 1.0
             else:
-                stat, p_val = ks_2samp(ref_data, curr_data)
+                _, p_val = ks_2samp(ref_data, curr_data)
                 
             sensor_p_values[sensor] = p_val
             
@@ -99,5 +112,6 @@ class StreamingMonitor:
             "drift_detected": drift_detected,
             "p_values": sensor_p_values,
             "current_idx": self.current_idx,
-            "current_data": current_window.iloc[-1].to_dict() # the latest row
+            "current_data": current_window.iloc[-1].to_dict(),
+            "current_fault_type": self.current_fault_type
         }

@@ -24,7 +24,7 @@ class DummyModelCache:
             df = pd.read_csv(data_path, sep=r'\s+', header=None, names=columns)
             # Use a dummy target: remaining useful life or just time_in_cycles for simplicity
             X = df[cls._features]
-            y = df['time_in_cycles'] # Dummy target
+            y = df['time_in_cycles']
             
             # Train a quick random forest
             cls._model = RandomForestRegressor(n_estimators=10, max_depth=5, random_state=42)
@@ -36,9 +36,39 @@ class DummyModelCache:
             
         return cls._explainer, cls._features
 
-# Define global path for data to use in the tool. 
-# In a real app we might pass this or configure it via environment.
+# Define global path for data to use in the tool.
 DATA_PATH = "data/CMAPSSData/train_FD001.txt"
+
+MAINTENANCE_MANUALS = {
+    "sensor_failure": (
+        "Sensor failure often appears as a localized anomaly in one or a few sensors. "
+        "Common signals include a stuck-at-constant output, sudden jumps to an extreme value, "
+        "or one sensor diverging while others remain stable. "
+        "A recommended response is to inspect and replace the affected sensor rather than retraining the model."
+    ),
+    "operational_drift": (
+        "Operational drift typically affects many sensors at once and emerges as a gradual shift in baseline readings. "
+        "The signal may evolve over time due to changing engine conditions, load, or environment. "
+        "This is usually best addressed by retraining or updating the predictive model on the new operating distribution."
+    ),
+    "general": (
+        "When triaging drift, compare statistical p-values across sensors with SHAP feature importance. "
+        "A dominant sensor importance combined with a low p-value strongly suggests hardware failure. "
+        "Distributed importance across many sensors suggests a systemic shift in the environment or process."
+    )
+}
+
+@tool
+def retrieve_maintenance_manuals(query: str) -> str:
+    """
+    Returns a short maintenance-style summary for the requested failure mode.
+    """
+    normalized = query.lower()
+    if "sensor" in normalized and "failure" in normalized:
+        return MAINTENANCE_MANUALS["sensor_failure"]
+    if "operational" in normalized or "drift" in normalized:
+        return MAINTENANCE_MANUALS["operational_drift"]
+    return MAINTENANCE_MANUALS["general"]
 
 @tool
 def diagnose_with_shap(sensor_data: dict) -> dict:
