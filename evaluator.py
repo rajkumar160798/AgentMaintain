@@ -43,7 +43,12 @@ class VRAMTracker:
         return self.max_vram
 
 def run_ablation():
-    models = ["qwen2.5:7b", "phi3.5"]
+    # Ablation study: test models individually, then together as a consensus system
+    model_configs = [
+        ("qwen2.5:7b_only", ["qwen2.5:7b"]),
+        ("phi3.5_only", ["phi3.5"]),
+        ("consensus_qwen_phi", ["qwen2.5:7b", "phi3.5"])
+    ]
     max_loops = 100
     step_size = 20
     
@@ -54,13 +59,14 @@ def run_ablation():
     
     tracker = VRAMTracker()
     
-    for model_name in models:
+    for config_name, models_list in model_configs:
         print(f"==========================================")
-        print(f"Starting Evaluation for Model: {model_name}")
+        print(f"Starting Evaluation for Setup: {config_name}")
+        print(f"Using models: {models_list}")
         print(f"==========================================")
         
         # Reset graph & monitor for fresh state
-        app, monitor = build_graph(model_name=model_name, step_size=step_size)
+        app, monitor = build_graph(models=models_list, step_size=step_size)
         
         loop_count = 0
         
@@ -113,7 +119,7 @@ def run_ablation():
                 tokens_est = len(reasoning.split()) if reasoning else 0
                 
                 metrics = {
-                    "model": model_name,
+                    "model": config_name,
                     "cycle": result.get("current_idx"),
                     "action": action,
                     "latency_s": latency,
@@ -125,7 +131,7 @@ def run_ablation():
                 all_metrics.append(metrics)
                 
                 trace = {
-                    "model": model_name,
+                    "model": config_name,
                     "cycle": result.get("current_idx"),
                     "p_values": result.get("p_values"),
                     "shap_values": result.get("shap_values"),
@@ -134,7 +140,7 @@ def run_ablation():
                 }
                 traces.append(trace)
                 
-                print(f"[{model_name}] Cycle {result.get('current_idx')} | Action: {action} | Latency: {latency:.2f}s | Correct: {correct} | VRAM Peak: {peak_vram:.1f} MB")
+                print(f"[{config_name}] Cycle {result.get('current_idx')} | Action: {action} | Latency: {latency:.2f}s | Correct: {correct} | VRAM Peak: {peak_vram:.1f} MB")
                 
             loop_count += 1
             time.sleep(0.1)  # Brief pause between loops

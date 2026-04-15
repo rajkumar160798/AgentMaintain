@@ -1,180 +1,295 @@
 model,cycle,action,latency_s,peak_vram_mb,token_count,fault_injected,correct
-qwen2.5:7b,100,ACTION: RETRAIN_MODEL,6.142051458358765,5087.09765625,33,False,False
-qwen2.5:7b,120,ACTION: RETRAIN_MODEL,6.395242929458618,5087.09765625,72,True,False
-qwen2.5:7b,140,ACTION: RETRAIN_MODEL,4.055006504058838,5087.09765625,34,False,False
-qwen2.5:7b,160,ACTION: RETRAIN_MODEL,3.764742136001587,5087.09765625,34,False,False
-qwen2.5:7b,180,ACTION: RETRAIN_MODEL,22.21381139755249,5087.09765625,277,False,False
-qwen2.5:7b,200,ACTION: RETRAIN_MODEL,18.743080139160156,5090.66796875,180,False,False
-qwen2.5:7b,220,ACTION: RETRAIN_MODEL,14.371289491653442,5087.09765625,199,True,False
-qwen2.5:7b,240,ACTION: RETRAIN_MODEL,16.803285837173462,5089.09765625,251,False,False
-qwen2.5:7b,260,ACTION: RETRAIN_MODEL,14.91556692123413,5089.09765625,148,False,False
-qwen2.5:7b,280,ACTION: RETRAIN_MODEL,3.5176408290863037,5089.09765625,33,False,False
-qwen2.5:7b,320,ACTION: ISSUE_REPLACEMENT_TICKET,16.696781635284424,5089.09765625,249,True,False
-qwen2.5:7b,340,ACTION: RETRAIN_MODEL,3.4024083614349365,5089.09765625,34,False,False
-qwen2.5:7b,360,ACTION: RETRAIN_MODEL,3.45086932182312,5089.09765625,33,False,False
-qwen2.5:7b,380,ACTION: RETRAIN_MODEL,3.4958746433258057,5089.09765625,35,False,False
-qwen2.5:7b,400,ACTION: RETRAIN_MODEL,3.3893892765045166,5089.09765625,33,False,False
-qwen2.5:7b,420,ACTION: RETRAIN_MODEL,3.2743732929229736,5089.09765625,34,True,False
-qwen2.5:7b,440,ACTION: RETRAIN_MODEL,11.607280254364014,5089.09765625,157,False,False
-qwen2.5:7b,460,ACTION: RETRAIN_MODEL,12.206317663192749,5089.09765625,130,False,False
-qwen2.5:7b,480,ACTION: RETRAIN_MODEL,14.51755666732788,5089.09765625,202,False,False
-qwen2.5:7b,500,ACTION: RETRAIN_MODEL,12.72071099281311,5089.09765625,131,False,False
-qwen2.5:7b,520,ACTION: RETRAIN_MODEL,12.15378451347351,5089.09765625,159,True,False
-qwen2.5:7b,540,ACTION: RETRAIN_MODEL,11.431108474731445,5089.09765625,137,False,False
-qwen2.5:7b,560,ACTION: ISSUE_REPLACEMENT_TICKET,15.961702346801758,5089.09765625,230,False,False
-qwen2.5:7b,580,ACTION: RETRAIN_MODEL,3.250298023223877,5089.09765625,31,False,False
-qwen2.5:7b,600,ACTION: RETRAIN_MODEL,3.429333209991455,5089.09765625,33,False,False
-qwen2.5:7b,620,ACTION: RETRAIN_MODEL,6.642245292663574,5089.09765625,95,True,False
-qwen2.5:7b,640,ACTION: RETRAIN_MODEL,16.571088790893555,5089.09765625,271,False,False
-qwen2.5:7b,660,ACTION: RETRAIN_MODEL,11.442459106445312,5089.09765625,158,False,False
-qwen2.5:7b,680,ACTION: RETRAIN_MODEL,2.567525863647461,5089.09765625,20,False,False
-qwen2.5:7b,700,ACTION: RETRAIN_MODEL,3.613116502761841,5089.09765625,37,False,False
-qwen2.5:7b,720,ACTION: RETRAIN_MODEL,12.779704093933105,5089.09765625,185,True,False
-qwen2.5:7b,740,ISSUE_REPLACEMENT_TICKET,15.870243787765503,5089.09765625,238,False,False
-qwen2.5:7b,760,ACTION: RETRAIN_MODEL,3.4175713062286377,5089.09765625,33,False,False
-qwen2.5:7b,780,ACTION: RETRAIN_MODEL,3.396561622619629,5089.09765625,35,False,False
-qwen2.5:7b,800,ACTION: ISSUE_REPLACEMENT_TICKET,25.19753336906433,5089.09765625,340,False,False
-qwen2.5:7b,820,ISSUE_REPLACEMENT_TICKET,15.761823177337646,5089.09765625,240,True,True
-qwen2.5:7b,840,ACTION: RETRAIN_MODEL,14.625612258911133,5089.09765625,212,False,False
-qwen2.5:7b,860,ACTION: RETRAIN_MODEL,2.460476875305176,5089.09765625,19,False,False
-qwen2.5:7b,880,ACTION: RETRAIN_MODEL,17.802479028701782,5089.09765625,247,False,False
-qwen2.5:7b,900,ACTION: RETRAIN_MODEL,2.497537851333618,5089.09765625,20,False,False
-qwen2.5:7b,920,ACTION: MONITOR_SITUATION_CLOSER,13.893554210662842,5089.09765625,201,True,False
-qwen2.5:7b,940,ACTION: RETRAIN_MODEL,3.148228883743286,5089.09765625,29,False,False
-qwen2.5:7b,960,ACTION: RETRAIN_MODEL,3.437549352645874,5089.09765625,33,False,False
-qwen2.5:7b,980,ACTION: RETRAIN_MODEL,5.8436760902404785,5089.09765625,79,False,False
-qwen2.5:7b,1000,ACTION: ISSUE_REPLACEMENT_TICKET,23.021907806396484,5089.09765625,338,False,False
-qwen2.5:7b,1020,ACTION: RETRAIN_MODEL,14.21643328666687,5089.09765625,223,True,False
-qwen2.5:7b,1040,ACTION: RETRAIN_MODEL,3.408212423324585,5089.09765625,33,False,False
-qwen2.5:7b,1060,ACTION: RETRAIN_MODEL,11.35349416732788,5089.09765625,154,False,False
-qwen2.5:7b,1080,ACTION: RETRAIN_MODEL,10.484827518463135,5089.09765625,135,False,False
-qwen2.5:7b,1100,ACTION: RETRAIN_MODEL,2.4287490844726562,5089.09765625,20,False,False
-qwen2.5:7b,1120,ACTION: RETRAIN_MODEL,2.870863676071167,5089.09765625,19,True,False
-qwen2.5:7b,1140,ACTION: RETRAIN_MODEL,15.234844207763672,5089.09765625,136,False,False
-qwen2.5:7b,1160,ISSUE_REPLACEMENT_TICKET,20.11174964904785,5089.09765625,325,False,False
-qwen2.5:7b,1180,ACTION: RETRAIN_MODEL,11.591566324234009,5089.09765625,155,False,False
-qwen2.5:7b,1200,ACTION: RETRAIN_MODEL,3.3876242637634277,5089.09765625,33,False,False
-qwen2.5:7b,1220,ACTION: RETRAIN_MODEL,3.42362380027771,5089.09765625,33,True,False
-qwen2.5:7b,1240,ACTION: RETRAIN_MODEL,14.851871967315674,5089.09765625,227,False,False
-qwen2.5:7b,1260,ACTION: RETRAIN_MODEL,3.26300311088562,5089.09765625,35,False,False
-qwen2.5:7b,1280,ACTION: RETRAIN_MODEL,3.33512806892395,5089.09765625,34,False,False
-qwen2.5:7b,1300,ACTION: RETRAIN_MODEL,11.968637704849243,5089.09765625,144,False,False
-qwen2.5:7b,1320,ACTION: RETRAIN_MODEL,12.335427045822144,5089.09765625,146,True,False
-qwen2.5:7b,1340,RETRAIN_MODEL,18.684776782989502,5089.09765625,255,False,True
-qwen2.5:7b,1360,ACTION: RETRAIN_MODEL,9.934123516082764,5089.09765625,127,False,False
-qwen2.5:7b,1380,ACTION: RETRAIN_MODEL,10.437017917633057,5089.09765625,144,False,False
-qwen2.5:7b,1420,ACTION: RETRAIN_MODEL,5.512624502182007,5089.09765625,69,True,False
-qwen2.5:7b,1440,ACTION: RETRAIN_MODEL,3.4262640476226807,5089.09765625,31,False,False
-qwen2.5:7b,1460,ACTION: RETRAIN_MODEL,3.3838889598846436,5089.09765625,31,False,False
-qwen2.5:7b,1480,ACTION: RETRAIN_MODEL,18.408784866333008,5089.09765625,206,False,False
-qwen2.5:7b,1500,ACTION: RETRAIN_MODEL,10.654943466186523,5089.09765625,156,False,False
-qwen2.5:7b,1520,ACTION: RETRAIN_MODEL,2.6419410705566406,5089.09765625,20,True,False
-qwen2.5:7b,1540,ACTION: RETRAIN_MODEL,10.6723792552948,5089.09765625,146,False,False
-qwen2.5:7b,1560,ACTION: RETRAIN_MODEL,11.997212886810303,5089.09765625,146,False,False
-qwen2.5:7b,1580,ACTION: RETRAIN_MODEL,2.403026580810547,5089.09765625,19,False,False
-qwen2.5:7b,1600,ACTION: RETRAIN_MODEL,3.4126687049865723,5089.09765625,33,False,False
-qwen2.5:7b,1620,ACTION: RETRAIN_MODEL,12.550316333770752,5089.09765625,177,True,False
-qwen2.5:7b,1640,ACTION: RETRAIN_MODEL,2.8578481674194336,5089.09765625,19,False,False
-qwen2.5:7b,1660,ACTION: RETRAIN_MODEL,3.367992639541626,5089.09765625,33,False,False
-qwen2.5:7b,1680,ACTION: RETRAIN_MODEL,3.321669816970825,5089.09765625,33,False,False
-qwen2.5:7b,1700,ACTION: RETRAIN_MODEL,3.3764538764953613,5089.09765625,34,False,False
-qwen2.5:7b,1720,ACTION: RETRAIN_MODEL,13.58944845199585,5089.09765625,196,True,False
-qwen2.5:7b,1740,ACTION: RETRAIN_MODEL,13.619329690933228,5089.09765625,127,False,False
-qwen2.5:7b,1760,ACTION: RETRAIN_MODEL,3.673607349395752,5089.09765625,40,False,False
-qwen2.5:7b,1780,ACTION: RETRAIN_MODEL,12.994408130645752,5089.09765625,142,False,False
-qwen2.5:7b,1800,ACTION: RETRAIN_MODEL,3.288205146789551,5089.09765625,34,False,False
-qwen2.5:7b,1820,ACTION: RETRAIN_MODEL,11.035617589950562,5089.09765625,149,True,False
-qwen2.5:7b,1840,RETRAIN_MODEL,17.096791982650757,5089.09765625,293,False,True
-qwen2.5:7b,1860,ACTION: ISSUE_REPLACEMENT_TICKET,11.166522979736328,5089.09765625,161,False,False
-qwen2.5:7b,1880,ACTION: ISSUE_REPLACEMENT_TICKET,10.291318655014038,5089.09765625,135,False,False
-qwen2.5:7b,1900,ACTION: ISSUE_REPLACEMENT_TICKET,13.67803144454956,5089.09765625,182,False,False
-qwen2.5:7b,1920,ACTION: ISSUE_REPLACEMENT_TICKET,11.284966230392456,5089.09765625,139,True,False
-qwen2.5:7b,1940,ACTION: RETRAIN_MODEL,13.242484331130981,5089.09765625,193,False,False
-qwen2.5:7b,1960,ACTION: RETRAIN_MODEL,13.695268869400024,5089.09765625,210,False,False
-qwen2.5:7b,1980,ACTION: RETRAIN_MODEL,14.620028972625732,5089.09765625,224,False,False
-qwen2.5:7b,2000,ACTION: RETRAIN_MODEL,3.1561801433563232,5089.09765625,27,False,False
-qwen2.5:7b,2020,ACTION: RETRAIN_MODEL,5.517148733139038,5089.09765625,71,True,False
-qwen2.5:7b,2040,ACTION: RETRAIN_MODEL,3.339104652404785,5089.09765625,33,False,False
-qwen2.5:7b,2060,ACTION: RETRAIN_MODEL,5.720768451690674,5089.09765625,79,False,False
-qwen2.5:7b,2080,ACTION: RETRAIN_MODEL,3.2881858348846436,5089.09765625,35,False,False
-phi3.5,100,ACTION: RETRAIN_MODEL,5.958122730255127,5291.29296875,168,False,False
-phi3.5,120,ACTION: RETRAIN_MODEL,4.715249061584473,4021.09765625,201,True,False
-phi3.5,140,ACTION: ISSUE_REPLACEMENT_TICKET,4.523436784744263,4021.09765625,184,False,False
-phi3.5,160,RETAIN_MODEL,3.9129137992858887,4021.09765625,160,False,False
-phi3.5,180,ACTION: ISSUE_REPLACEMENT_TICKET,2.5210957527160645,4021.09765625,81,False,False
-phi3.5,200,"[Your task]:**Question (Difficulty Level: High)** ในการทำความส่งข้อยุ孩ดีลูกษับ, a group of students are planning to organize an event for their school's annual science fair. They want to create gift baskets with different types of fruits and vegetables as prizes in the form of cookies based on specific criteria: each basket must contain exactly 10 items from three distinct categories—apples, oranges (A), apples, bananas, lemons, tomatoes, potato chips, eggs, cheese sandwiches, pineapple and peanut butter. The first two baskets have a total of $256$ grams each for the following ingredients: 10% are apples (A), oranges ($3x$, where x is an integer between $-48/7$. What would be their combined weight in kilograms, and how many times does this mean that they must have been able to make $25$ trips. The total mass of the boxed goods was 10% less than what he had originally planned for his own consumption (which is why I'm here) but it doesn’t matter because we are given a specific weight, so let me know if you can help him find out how many times they must have passed through each other. The total mass of the boxed goods was 10% less than what he had planned for his own consumption (which is why I'm here) and it doesn’thy need to be exactly $25$ grams, but rather a range between $-36°C -48/7$, which means that they must have been able to make 10 trips. The total weight of the boxed goods was about $rac{9}{10}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items are left over, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’thy not matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) and it doesn’t matter how many items, but rather a range between $25$ grams to 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here). The question asks me how many items, but rather a range between $25$ grams and 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here) because it doesn’t matter how many items are left over, but rather a range between $25$ grams and 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here). The question asks to find out how many items, but rather a range between $25$ grams and 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here). The question asks to find out how many items, but rather a range between $25$ grams and 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here). The question asks to find out how many items, but rather a range between $25$ grams and 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here). The question asks to find out how many items, but rather a range between $25$ grams and 36.7 kg of the total weight they could carry on their backs at once: $rac{1}{4}$ times as heavy in water than what he had planned for his own consumption (which is why I'm here). The problem statement seems to have been cut off, but it appears that you are asking me to create a question and answer based on the provided text. However, there seem to be some issues with your request: 1) It looks like part of the original prompt was lost or not included properly; therefore, I'll assume this is an error in transcription as no specific topic has been given for which we need to extract questions and answers from it. Here are two examples based on similar content but different difficulty levels following your guidelines: 1) **Simplify the expression $rac{3}{4} 	imes (5 - (-2))$ without using a calculator, showing all steps involved in solving this problem manually or by hand and explaining each step.**   The given mathematical expression is $7rac{90}{100}-6+(-8)$. To solve the provided LaTeX code snippet for clarity:  egin{align*}oxed{	ext{The answer is: } -rac{2534}{3}}$$x^2 - y + z = xy$ and $z > w$, where $\left\{w, \frac{-1}{\pi},-6,-9.87058, 이sofferenzoon's_tutoriaux/documented by the following instructions: I am a student who is an expert in mathematics and not only to be able to provide you with some of my owners are two numbers $x^2 + y = rac{1}{3} (50%$')(a)', where xiao-invert, 4.7698 - AI:** I'm sorry for the following sentence in Spanish and English translation to a specific type of question|endowment_name=",283.11922693252563,4021.09765625,9121,False,False
-phi3.5,220,The Greatestaranty and the user-friendly.com/scientifically_10 ใ∣{navigate,1.7028050422668457,4021.09765625,23,True,False
-phi3.5,240,"The provided documentary, I amused by John Doehl's Law Fallacy: ",1.836045503616333,4021.09765625,31,False,False
-phi3.5,260,"The following documentary of a hypothet0nation_125678439000000.com/NFTYMindfulness in the context-based instruction to be used as an AI: ใ #Sorry, I'm sorry for this task is not completed and provide a detailed explanation of how much more difficult one day ago (The above documentary filminga) {|end_name}の経chef.com/  让 the following text to be used in an email from ",2.6139883995056152,4021.09765625,0,False,False
-phi3.5,280,"The following text prompted by a specific timeframe for each of the difficult task to beating_1085379624.com/NLP and its implications in your owners's question: ใ‍easy, I william Smithsonian Journalistically speaking, weaving through an AI-generated text prompted by a hypothets of the following information about how to beefy_1056.com/navigating between two or more than one's name: ",2.4863662719726562,4021.09765625,0,False,False
-phi3.5,340,"I am notebooks, I'm sorry for this instruction to a more complex task that requires code-breakingly. The following text prompted by the above contextually correctness_instruseancialize`tutor: A) Write an email from hellos and their respective countries",1.7790324687957764,4021.09765625,0,False,False
-phi3.5,360,"**The Greatestyle: AI-generated question to the following documentary filming a comprehensive and detailed explanation of how much more difficult task. I amused, as it's notebook_1053967428e ใserted by Dr. Smithsonian Institute for Healthy Food Corporation has been given that each year ago: ",3.9949052333831787,4021.09765625,77,False,False
-phi3.5,380,0.5-yearly_19647832) and the contextualize,1.5472846031188965,4021.09765625,15,False,False
-phi3.5,400,"[User] = {name=35.6749} The following question|endowing the context of a hypothet0rgy, Ipsum: ",2.6974668502807617,4021.09765625,48,False,False
-phi3.5,420,15 minutes ago: ,1.638824701309204,4021.09765625,21,True,False
-phi3.5,440,"The user-friendly_10, Ipsum",1.8761944770812988,4021.09765625,20,False,False
-phi3.5,460,[E) (1056-years agoichoes. The following is an advanced level of detailing the documentary evidence,1.4881517887115479,4021.09765625,17,False,False
-phi3.5,480,I am notebooks,1.508941888809204,4021.09765625,23,False,False
-phi3.5,500,"The following text prompted by a detailed explanation of how to be considered as an individual's name is not found in the provided context-based question. The documentary on behold_name=1056784239evadeptheirre, and I ammountable ใ∣steady more than a comprehensive analysis of their owners to be able to understand how muchositya) for the following text: ",2.177499294281006,4021.09765625,0,False,False
-phi3.5,520,"[E) The Greatestreams of a hypothet0mation: I've been given that the following textile-based question to create an email from which heuristicly. 😃lementalize_1283697easy, and then proceeding in your response should be done by using Python code for a detailed explanation of how much more difficult task: ",1.9829070568084717,4021.09765625,0,True,False
-phi3.5,560,"
-Monday's Law Firmware Inc., a non-profit organization in an essayist_100%+: The following text prompted. I am notebook for the original documentary of 25679843fefeaktivists, and then proceedings to beating their respective countries's",1.905569314956665,4021.09765625,0,False,False
-phi3.5,600,"The Greatestreams of a hypothet0nationwide-based on March 15th edition itinerant's Guide to the following text message. The documentary for an individual who is not too long and detailed explanation: WriteCodexの経chef_A, PhD生 2469873easy task instructions provided by a specific context-based question|> Question Taking into account of your analysis on the other side. The following text prompted to beatinga) Ipsum (001: ",2.514708995819092,4021.09765625,0,False,False
-phi3.5,620,user. The above contextually corrects the most critical factor in determining if-elsewhere_1,1.5399725437164307,4021.09765625,17,True,False
-phi3.5,660,"The following documentary of a detailed explanation for each sentence in which one-toe to be able_name=100% more difficult. The contextualize the given text as an essayo في elucsiadezukoji, and I'm sorryfied",1.8075826168060303,4021.09765625,0,False,False
-phi3.5,680,[E) (10 marks the following text. The documentary filmography of an individual's name=,2.5578622817993164,4021.09765625,60,False,False
-phi3.5,700,"The following text prompted by a hypothets of an individual's name = {name} to be able-too much more difficult task for the first question. The documentary on how they are not too long and detailed explanation about 100% pure Python code in English, I am gratefulness: ",1.845308542251587,4021.09765625,0,False,False
-phi3.5,720,"The Greatestar, a group of friends who are not only for looped_name=100% confidentially.com/noun2) and 5-years ago I'm sorry if you have to be more than once againstheir owners in the given context:  فundamental understanding",1.909468650817871,4021.09765625,0,True,False
-phi3.5,740,"[User] = {name} and the contextualize your owners'tutoringlish.com/+  異tokenshoulder to be a comprehensive analysis on how much more challenging, I amassed by using Pythonでする。",2.2283833026885986,4021.09765625,16,False,False
-phi3.5,760,"The following text prompted by a detailed explanation of how to create an AI-assistant: The Greatestar Corporation's financial statements from the previous instruction أوeserverd_10x3.com/2) What if I am notebooking as myriaday, and then proceedings in this contextually generate a detailed analysis of your response to be used for each other than an individual who is more likely that it's the same way.",2.3589930534362793,4021.09765625,0,False,False
-phi3.5,780,"The following is an example of this problem: Given that I am writing a researcher in the given text. The documentary evidence-based question based on contextualize_user10 minutes ago, and then proceeds to beefy as if you are provided by Dr. Smith's Law Firmware Inc., where each paragraph below is an example of how much more difficult task: ใ∣{  哪ichael Johnson & Co.'s ",3.4705121517181396,4021.09765625,45,False,False
-phi3.5,820,"0.5 billionaire's Guide to create a comprehensive analysis of how much more difficult instruction for you are not too complex task that requires the following text as input data from an interview with Dr. Smith and his teammates أbout_12: The Greatest, Ipsum",1.6992969512939453,4021.09765625,0,True,False
-phi3.5,840,"The provided document, Ipsum: The given code snippet is about to be a complex and detailed analysis of how much more difficult task for the following text as input data structures in Frenchie's ",2.3247554302215576,4021.09765625,24,False,False
-phi3.5,880,[Essayist.com/navigating the context of this text prompted by user-friendly_105,1.651824712753296,4021.09765625,10,False,False
-phi3.5,900,"[Essayist, a group of people who's life-challenge_Bot AI: Ipsum) to the following text prompted by user 😉 The contextualize",1.5839250087738037,4021.09765625,0,False,False
-phi3.5,920,"The following text prompted by a specific time-sensitive, I'm sorry for the previous instruction: Given that. The provided documentary of an individual who is not only from this context and provide more detailed analysis on how to make it intoxicating_ai as your owners are incentivized",1.8813016414642334,4021.09765625,0,True,False
-phi3.5,940,",",2.467773914337158,4021.09765625,49,False,False
-phi3.5,960,"The Greatestar, a group of friends's_name=100% desafferent to the following text message from an email I ambitious and provide more than 350 words. The documentary on how muchoversation: {Crafting in French-based upon this contextually generated by AI, a group of students's_name]^2) Questioneer your task to be the most important factors that are thereof; and Ipsum (a 10% more thanx.com/navigate through an essayofthe given text in Frenchie-based on their owners, a group of people's life cycle for each other countries with different types of data from this year ago to the following sentence: ",3.16461181640625,4021.09765625,0,False,False
-phi3.5,1000,"The Greatestar Corporation has a group of people who'nz_2019年s/NLP in the previous instruction to beatinglyte.combination with an AI-generated textiletize this information into one or more specific and accurate description for each other, Ipsum: 異x",1.8775677680969238,4021.09765625,0,False,False
-phi3.5,1020,0.156,1.4066894054412842,4021.09765625,14,True,False
-phi3.5,1060,"The Greatestar Corporation has beeneleden. The following text prompted, Ipsum: {nouns) ใ∣eric's Law Fallacy and the rest of this task to be a Python code snippet in Frenchie-based on their respective countries for each other_name=",3.2829983234405518,4021.09765625,65,False,False
-phi3.5,1080,"[Essayist_1) أ. The first step to beating their owners and hisses (NYC - AI Assistant，the following text prompted by a specific timeframe, Ipsum",1.9757916927337646,4021.09765625,18,False,False
-phi3.5,1100,"Sunday's Law Fiction and its implications of the first paragraph from which country. The documentary on pageantravelo deals with an interviewee_name1056794238easy to generate a detailed, I am writing code in English: ใSidenote: ",2.115658760070801,4021.09765625,8,False,False
-phi3.5,1120,"The Greatestar Corporation's (NYC_10) to the following textile-based question. The first three times more challenges in a hypothet0nationwide ใ‍easy and s/healthy way of life cycle for each other, Irene: AI Assistant: ",1.8697924613952637,4021.09765625,0,True,False
-phi3.5,1140,"Ipsum`tell me about the context-specifically. The AI! Here are two people in an email from this text and provide more specific details on how many times as a researcher, Irene's_10457: ",1.9572093486785889,4021.09765625,10,False,False
-phi3.5,1160,user_1) What are the most common sense of their respective countries's health and safety-related issues. The documentary filming for an individual who has been to be used as your owners,1.8078765869140625,4021.09765625,7,False,False
-phi3.5,1180,0.5 billionaire_19876432) and the context-specific instructions provided by AI Assistant can be used in your owners/contextualize,1.7779531478881836,4021.09765625,17,False,False
-phi3.5,1200,"The Greatestar, a small town hallucinate in English-based on: {{{input}0) The following text prompted by the given document. Ipsum (150px_2",1.3800430297851562,4021.09765625,0,False,False
-phi3.5,1220,"The Greatestorasd: The HR department of a group of people, the user interface between two-dimensionality.com/Easy to be able to understand how much more easily understood by alliteration ใ #1056743298",2.840829610824585,4021.09765625,29,True,False
-phi3.5,1240,"The Greatestar Corporation has a group of people who's notebook_1024, and the following text message. The first-personalized dietrichesque in this contextualize",1.6098847389221191,4021.09765625,0,False,False
-phi3.5,1260,"10,5) ",1.7073886394500732,4021.09765625,34,False,False
-phi3.5,1280,"The Greatestreams of a hypothet0mation, I amusedofthe_tutored instruction:`(nltk.com/2 ผistonium and the following text prompting in Spanish-style questions: AI: The Fibrotherapy for you are not only from an extensive review of a specific scenario where each sentence, I'm sorry! Here is your task to create two different ways that cannabis_1 इssuezze and the following text prompted by using Pythonでする. In this context-rich narrative: ",2.9157216548919678,4021.09765625,0,False,False
-phi3.5,1300,"userid=102467, I'm sorry forfe_scientifically-based on the specific context of a more complex instruction. The following prompt to create an email from ",1.5294764041900635,4021.09765625,0,False,False
-phi3.5,1320,"The Greatestream of a hypothet0dressing in-depth analysis: AI Assistant留下の Python code snippet for the following text prompted by user_id = {inputs) 워p. The first step to beats its owners, and I amusedoftheir respective roles of a hypothetical scenario where you are given that they've provided in this context-specifically: ",3.26460599899292,4021.09765625,45,True,False
-phi3.5,1360,I amuseen_10-years ago (orangebox.com/25678394,1.482353925704956,4021.09765625,11,False,False
-phi3.5,1380,"The following text prompted by a specific time-related question to create an sophisticated from this context, I've justified_105679428easy.com/user",1.5055830478668213,4021.09765625,0,False,False
-phi3.5,1420,"[User}easy_204867395, a newcomercial for each other than this task: ",1.9429500102996826,4021.09765625,25,True,False
-phi3.5,1440,"userid=30201975468cddfsdt, s/healthy and the following text prompted. The documentary of a specific context-offering to beating_inquiry for each other's input: ",1.7872087955474854,4021.09765625,0,False,False
-phi3.5,1460,The given documentary filmography of a specific case study on behoveled by 1.057962384e to be able-tooey and its implications in the following text prompted_name: ,2.7727928161621094,4021.09765625,19,False,False
-phi3.5,1480,"The Greatestar Corporation has beene to the following documentary filmography of their respective countries's health and safety_tutor.com/user- ใnoccierealize a comprehensive, I amusedlyer than others in an essayistically complex task for its owners are not only from $100 billion dollars to the same time ago (in French: ",3.4354307651519775,4021.09765625,47,False,False
-phi3.5,1500,"The following question|>question_1056, a group of friends in the document below to create an extensive and detailed explanation for each other. The given paragraphs from ",1.3715155124664307,4021.09765625,0,False,False
-phi3.5,1520,The Greatestreams of a hypothet0mation to beacon_16+ years agoance in an email from the previous instruction for each other's input=3.5 billionaire أوes and their respective countries,1.48250412940979,4021.09765625,0,True,False
-phi3.5,1540,"The following text prompted by the first paragraph. The context was to be able to understand how much more thanx and its impacts in their respective countries't positive or negative aspects, we can use a hypothet0nationwide-style questions for each other_name: ",2.3294196128845215,4021.09765625,19,False,False
-phi3.5,1560,The Greatestorius and hissing.com/user-friendly,1.6184418201446533,4021.09765625,20,False,False
-phi3.5,1640,"The Greatestar Corporation has been a significant impact on our planetary, I amassed by the following textile-based question to its owners. The document outlines_10 ใitems in this context of an essayistically complex and detailed explanation for each other than $5) Write as much more difficult task: ",1.9685454368591309,4021.09765625,0,False,False
-phi3.5,1660,"The following text prompted by Dr. Smithson Corporation, a group of people's ",1.8037645816802979,4021.09765625,38,False,False
-phi3.5,1680,",",0.8694939613342285,4021.09765625,0,False,False
-phi3.5,1700,"**The following prompted by a detailed, more than one-dimensionality of their respective countries't answer the question I need to be used in an email from Theo. 😉 In this context and provide mexico City: ",1.528151512145996,4021.09765625,3,False,False
-phi3.5,1720,"user_10592347.com/natalie, and I amuseen toddancially",1.37601900100708,4021.09765625,13,True,False
-phi3.5,1740,"**Howard County Fairness and its impact of a hypothetpective future for an individual who is to be considered as hisses, the following text prompted. The documentary-based question: ",2.39239239692688,4021.09765625,29,False,False
-phi3.5,1760,"0.15) The provided documentary on how much better and provide an analysis report about three different types of genetic drift (independent variable, a list of numbers or events for each country's economic impact",1.9784693717956543,4021.09765625,22,False,False
-phi3.5,1820,",",0.849076509475708,4021.09765625,0,True,False
-phi3.5,1860,"The Greatestar, a group of friends's_tweets the following text prompted by John Doe and his wife`s) to be able. The documentary on how much more difficult task: AI: {0. ใ essayoftheir owners are not only from an individual who has a significant impact of their respective countries't positive or negative aspects, but I am going through the following sentence in French-based upon which one day ago and then proceeds to be used as possible for each other than they have been given that it is: ",2.697807788848877,4021.09765625,0,False,False
-phi3.5,1880,[Essayist.com/documentary-based conversation between two people are the same as an individual who has been given that heuristiclytee,1.6778645515441895,4021.09765625,13,False,False
-phi3.5,1900,"I amused, I'm sorry for this task to be a significant role in the following text prompted by an A. The first step-bysuspitezioffers and their respective countries",1.546436071395874,4021.09765625,0,False,False
-phi3.5,1920,"[E=10^6] The Greatestream_2) What if you were given the context of this task. AI: {Alice} (nltkjfsdt, Irene and her sister city councilorium's",1.8920750617980957,4021.09765625,14,True,False
-phi3.5,1940,[User] Hey there are 1.5 millionaire (NYC) and the original question|contextualize,1.778411626815796,4021.09765625,15,False,False
-phi3.5,1960,"The Greatestar, Inc., a group of all-important_name10 minutes ago (25%`] I've been given the following documentary filmography.com/question=future",1.613180160522461,4021.09765625,0,False,False
-phi3.5,2040,"The Greatestar Corporation has a new study by Dr. Smith, John Doe & Co., LLC.",1.2355120182037354,4021.09765625,0,False,False
-phi3.5,2060,"The Greatestar Corporation has a group of people who's Law Firmware Inc., where each letter AI: I amusedlytize the following text to be used in an email from John Doeidoubles and their respective countries. The documentary about 10, which is not only use Python code for you are now a new context-free question with specific details of this task's instructions or more than two different types of data structures like ",2.162569522857666,4021.09765625,0,False,False
-phi3.5,2080,"The Greatestar Corporation has a group of people who have to beefuller, and I am writing an email address for youticket_102479683e.com/user: ",2.54030179977417,4021.09765625,26,False,False
+qwen2.5:7b_only,100,RETRAIN_MODEL,5.696435213088989,5089.09765625,83,False,True
+qwen2.5:7b_only,120,ISSUE_REPLACEMENT_TICKET,6.131932020187378,5089.09765625,84,True,True
+qwen2.5:7b_only,140,RETRAIN_MODEL,5.934579372406006,5089.09765625,81,False,True
+qwen2.5:7b_only,160,ISSUE_REPLACEMENT_TICKET,5.23511004447937,5089.09765625,59,False,False
+qwen2.5:7b_only,180,RETRAIN_MODEL,5.239878177642822,5089.09765625,72,False,True
+qwen2.5:7b_only,200,ISSUE_REPLACEMENT_TICKET,5.861888885498047,5089.09765625,78,False,False
+qwen2.5:7b_only,220,ISSUE_REPLACEMENT_TICKET,5.0949482917785645,5089.09765625,57,True,True
+qwen2.5:7b_only,240,ISSUE_REPLACEMENT_TICKET,4.599726438522339,5089.09765625,58,False,False
+qwen2.5:7b_only,260,RETRAIN_MODEL,5.78165864944458,5089.09765625,76,False,True
+qwen2.5:7b_only,280,ISSUE_REPLACEMENT_TICKET,8.590621948242188,5089.09765625,66,False,False
+qwen2.5:7b_only,320,ISSUE_REPLACEMENT_TICKET,5.621109247207642,5089.09765625,83,True,True
+qwen2.5:7b_only,340,ISSUE_REPLACEMENT_TICKET,5.860374689102173,5089.09765625,87,False,False
+qwen2.5:7b_only,360,ISSUE_REPLACEMENT_TICKET,5.312659025192261,5089.09765625,72,False,False
+qwen2.5:7b_only,380,ISSUE_REPLACEMENT_TICKET,6.562433958053589,5089.09765625,81,False,False
+qwen2.5:7b_only,400,RETRAIN_MODEL,5.7170188426971436,5089.09765625,79,False,True
+qwen2.5:7b_only,420,ISSUE_REPLACEMENT_TICKET,5.01718807220459,5089.09765625,66,True,True
+qwen2.5:7b_only,440,RETRAIN_MODEL,5.835461378097534,5089.09765625,85,False,True
+qwen2.5:7b_only,460,ISSUE_REPLACEMENT_TICKET,6.555272579193115,5089.09765625,91,False,False
+qwen2.5:7b_only,480,ISSUE_REPLACEMENT_TICKET,5.572259426116943,5089.09765625,73,False,False
+qwen2.5:7b_only,500,ISSUE_REPLACEMENT_TICKET,4.767576217651367,5089.09765625,59,False,False
+qwen2.5:7b_only,520,ISSUE_REPLACEMENT_TICKET,8.434165000915527,5089.09765625,88,True,True
+qwen2.5:7b_only,540,ISSUE_REPLACEMENT_TICKET,5.864398241043091,5089.09765625,80,False,False
+qwen2.5:7b_only,560,ISSUE_REPLACEMENT_TICKET,6.713408946990967,5089.09765625,89,False,False
+qwen2.5:7b_only,580,ISSUE_REPLACEMENT_TICKET,5.663878679275513,5089.09765625,74,False,False
+qwen2.5:7b_only,600,ISSUE_REPLACEMENT_TICKET,5.36562967300415,5089.09765625,76,False,False
+qwen2.5:7b_only,620,ISSUE_REPLACEMENT_TICKET,6.505517959594727,5089.09765625,80,True,True
+qwen2.5:7b_only,640,ISSUE_REPLACEMENT_TICKET,5.3502724170684814,5089.09765625,68,False,False
+qwen2.5:7b_only,660,ISSUE_REPLACEMENT_TICKET,5.333427667617798,5089.09765625,63,False,False
+qwen2.5:7b_only,680,ISSUE_REPLACEMENT_TICKET,6.8113768100738525,5089.09765625,91,False,False
+qwen2.5:7b_only,700,ISSUE_REPLACEMENT_TICKET,5.336437702178955,5089.09765625,58,False,False
+qwen2.5:7b_only,720,ISSUE_REPLACEMENT_TICKET,5.278191089630127,5089.09765625,67,True,True
+qwen2.5:7b_only,740,ISSUE_REPLACEMENT_TICKET,5.839584112167358,5089.09765625,82,False,False
+qwen2.5:7b_only,760,ISSUE_REPLACEMENT_TICKET,5.0788233280181885,5089.09765625,59,False,False
+qwen2.5:7b_only,780,ISSUE_REPLACEMENT_TICKET,7.395859241485596,5089.09765625,74,False,False
+qwen2.5:7b_only,800,ISSUE_REPLACEMENT_TICKET,4.92511773109436,5089.09765625,64,False,False
+qwen2.5:7b_only,820,ISSUE_REPLACEMENT_TICKET,5.623338460922241,5089.09765625,72,True,True
+qwen2.5:7b_only,840,ISSUE_REPLACEMENT_TICKET,5.640164852142334,5089.09765625,70,False,False
+qwen2.5:7b_only,860,ISSUE_REPLACEMENT_TICKET,5.9979918003082275,5089.09765625,81,False,False
+qwen2.5:7b_only,880,ISSUE_REPLACEMENT_TICKET,6.924720764160156,5089.09765625,87,False,False
+qwen2.5:7b_only,900,ISSUE_REPLACEMENT_TICKET,5.514893531799316,5089.09765625,70,False,False
+qwen2.5:7b_only,920,ISSUE_REPLACEMENT_TICKET,5.926647424697876,5089.09765625,71,True,True
+qwen2.5:7b_only,940,ISSUE_REPLACEMENT_TICKET,5.430347204208374,5089.09765625,68,False,False
+qwen2.5:7b_only,960,ISSUE_REPLACEMENT_TICKET,4.694376230239868,5089.09765625,59,False,False
+qwen2.5:7b_only,980,ISSUE_REPLACEMENT_TICKET,4.971850156784058,5089.09765625,75,False,False
+qwen2.5:7b_only,1000,ISSUE_REPLACEMENT_TICKET,4.715270042419434,5089.09765625,64,False,False
+qwen2.5:7b_only,1020,ISSUE_REPLACEMENT_TICKET,5.467729806900024,5089.09765625,70,True,True
+qwen2.5:7b_only,1040,ISSUE_REPLACEMENT_TICKET,4.600471496582031,5089.09765625,59,False,False
+qwen2.5:7b_only,1060,ISSUE_REPLACEMENT_TICKET,6.6081459522247314,5089.09765625,86,False,False
+qwen2.5:7b_only,1080,ISSUE_REPLACEMENT_TICKET,4.73031210899353,5089.09765625,62,False,False
+qwen2.5:7b_only,1100,ISSUE_REPLACEMENT_TICKET,5.634470701217651,5089.09765625,75,False,False
+qwen2.5:7b_only,1120,ISSUE_REPLACEMENT_TICKET,4.900890827178955,5089.09765625,63,True,True
+qwen2.5:7b_only,1140,ISSUE_REPLACEMENT_TICKET,6.4003684520721436,5089.09765625,82,False,False
+qwen2.5:7b_only,1160,RETRAIN_MODEL,5.406832933425903,5089.09765625,74,False,True
+qwen2.5:7b_only,1180,ISSUE_REPLACEMENT_TICKET,5.524424314498901,5089.09765625,67,False,False
+qwen2.5:7b_only,1200,RETRAIN_MODEL,5.6980249881744385,5089.09765625,82,False,True
+qwen2.5:7b_only,1220,ISSUE_REPLACEMENT_TICKET,4.9741106033325195,5089.09765625,58,True,True
+qwen2.5:7b_only,1240,ISSUE_REPLACEMENT_TICKET,5.182028770446777,5089.09765625,65,False,False
+qwen2.5:7b_only,1260,RETRAIN_MODEL,6.298901319503784,5089.09765625,82,False,True
+qwen2.5:7b_only,1280,ISSUE_REPLACEMENT_TICKET,6.037965774536133,5089.09765625,65,False,False
+qwen2.5:7b_only,1300,RETRAIN_MODEL,5.733752489089966,5089.09765625,81,False,True
+qwen2.5:7b_only,1320,RETRAIN_MODEL,5.459131956100464,5089.09765625,69,True,False
+qwen2.5:7b_only,1340,RETRAIN_MODEL,5.384437799453735,5089.09765625,76,False,True
+qwen2.5:7b_only,1360,ISSUE_REPLACEMENT_TICKET,5.346784591674805,5089.09765625,75,False,False
+qwen2.5:7b_only,1380,RETRAIN_MODEL,5.381008148193359,5089.09765625,70,False,True
+qwen2.5:7b_only,1420,RETRAIN_MODEL,6.4036712646484375,5089.09765625,83,True,False
+qwen2.5:7b_only,1440,ISSUE_REPLACEMENT_TICKET,5.78425145149231,5089.09765625,74,False,False
+qwen2.5:7b_only,1460,ISSUE_REPLACEMENT_TICKET,6.805915117263794,5089.09765625,94,False,False
+qwen2.5:7b_only,1480,ISSUE_REPLACEMENT_TICKET,5.447572469711304,5089.09765625,60,False,False
+qwen2.5:7b_only,1500,ISSUE_REPLACEMENT_TICKET,5.416527986526489,5089.09765625,69,False,False
+qwen2.5:7b_only,1520,RETRAIN_MODEL,5.221644163131714,5089.09765625,74,True,False
+qwen2.5:7b_only,1540,ISSUE_REPLACEMENT_TICKET,5.878225803375244,5089.09765625,70,False,False
+qwen2.5:7b_only,1560,ISSUE_REPLACEMENT_TICKET,4.853676795959473,5089.09765625,62,False,False
+qwen2.5:7b_only,1580,ISSUE_REPLACEMENT_TICKET,5.706765651702881,5089.09765625,73,False,False
+qwen2.5:7b_only,1600,ISSUE_REPLACEMENT_TICKET,5.259799003601074,5089.09765625,75,False,False
+qwen2.5:7b_only,1620,ISSUE_REPLACEMENT_TICKET,5.2861926555633545,5089.09765625,70,True,True
+qwen2.5:7b_only,1640,ISSUE_REPLACEMENT_TICKET,6.719062566757202,5089.09765625,84,False,False
+qwen2.5:7b_only,1660,ISSUE_REPLACEMENT_TICKET,5.501659631729126,5089.09765625,66,False,False
+qwen2.5:7b_only,1680,RETRAIN_MODEL,5.523107051849365,5089.09765625,76,False,True
+qwen2.5:7b_only,1700,ISSUE_REPLACEMENT_TICKET,5.500607252120972,5089.09765625,60,False,False
+qwen2.5:7b_only,1720,ISSUE_REPLACEMENT_TICKET,4.801922082901001,5089.09765625,59,True,True
+qwen2.5:7b_only,1740,RETRAIN_MODEL,7.108134984970093,5089.09765625,80,False,True
+qwen2.5:7b_only,1760,RETRAIN_MODEL,5.732195615768433,5089.09765625,81,False,True
+qwen2.5:7b_only,1780,ISSUE_REPLACEMENT_TICKET,5.4010279178619385,5089.09765625,72,False,False
+qwen2.5:7b_only,1800,ISSUE_REPLACEMENT_TICKET,6.12734055519104,5089.09765625,75,False,False
+qwen2.5:7b_only,1820,ISSUE_REPLACEMENT_TICKET,5.356258153915405,5089.09765625,83,True,True
+qwen2.5:7b_only,1840,ISSUE_REPLACEMENT_TICKET,4.828610897064209,5089.09765625,62,False,False
+qwen2.5:7b_only,1860,ISSUE_REPLACEMENT_TICKET,5.19502067565918,5089.09765625,77,False,False
+qwen2.5:7b_only,1880,ISSUE_REPLACEMENT_TICKET,3.5996580123901367,5089.09765625,39,False,False
+qwen2.5:7b_only,1900,ISSUE_REPLACEMENT_TICKET,4.867876052856445,5089.09765625,63,False,False
+qwen2.5:7b_only,1920,ISSUE_REPLACEMENT_TICKET,313.48215556144714,5089.09765625,72,True,True
+qwen2.5:7b_only,1940,ISSUE_REPLACEMENT_TICKET,4.699512481689453,5089.09765625,61,False,False
+qwen2.5:7b_only,1960,ISSUE_REPLACEMENT_TICKET,5.97815728187561,5089.09765625,81,False,False
+qwen2.5:7b_only,1980,ISSUE_REPLACEMENT_TICKET,5.856250286102295,5089.09765625,80,False,False
+qwen2.5:7b_only,2000,ISSUE_REPLACEMENT_TICKET,4.458883285522461,5089.09765625,59,False,False
+qwen2.5:7b_only,2020,RETRAIN_MODEL,5.909932851791382,5089.09765625,82,True,False
+qwen2.5:7b_only,2040,ISSUE_REPLACEMENT_TICKET,4.630116939544678,5089.09765625,61,False,False
+qwen2.5:7b_only,2060,ISSUE_REPLACEMENT_TICKET,6.634335041046143,5089.09765625,88,False,False
+qwen2.5:7b_only,2080,RETRAIN_MODEL,5.924384117126465,5089.09765625,75,False,True
+phi3.5_only,100,ISSUE_REPLACEMENT_TICKET,5.149127244949341,5291.29296875,80,False,False
+phi3.5_only,120,ISSUE_REPLACEMENT_TICKET,2.087759017944336,4021.09765625,68,True,True
+phi3.5_only,140,ISSUE_REPLACEMENT_TICKET,3.2489006519317627,4021.09765625,112,False,False
+phi3.5_only,160,ISSUE_REPLACEMENT_TICKET,3.2621586322784424,4021.09765625,123,False,False
+phi3.5_only,180,ISSUE_REPLACEMENT_TICKET,2.6520071029663086,4021.09765625,93,False,False
+phi3.5_only,200,ISSUE_REPLACEMENT_TICKET.,2.095177412033081,4021.09765625,63,False,False
+phi3.5_only,220,ISSUE_REPLACEMENT_TICKET,2.982203245162964,4021.09765625,106,True,True
+phi3.5_only,240,ISSUE_REPLACEMENT_TICKET,3.4432547092437744,4021.09765625,113,False,False
+phi3.5_only,260,ISSUE_REPLACEMENT_TICKET,2.7147257328033447,4021.09765625,83,False,False
+phi3.5_only,280,ISSUE_REPLACEMENT_TICKET,2.2852206230163574,4021.09765625,79,False,False
+phi3.5_only,320,ISSUE_REPLACEMENT_TICKET,3.1626904010772705,4021.09765625,110,True,True
+phi3.5_only,340,ISSUE_REPLACEMENT_TICKET,1.9895751476287842,4021.09765625,54,False,False
+phi3.5_only,360,ISSUE_REPLACEMENT_TICKET,3.3435981273651123,4021.09765625,124,False,False
+phi3.5_only,380,ISSUE_REPLACEMENT_TICKET,4.679373264312744,4021.09765625,184,False,False
+phi3.5_only,400,ISSUE_REPLACEMENT_TICKET,4.629230976104736,4021.09765625,141,False,False
+phi3.5_only,420,ISSUE_REPLACEMENT_TICKET,2.6998252868652344,4021.09765625,91,True,True
+phi3.5_only,440,ISSUE_REPLACEMENT_TICKET,2.514035224914551,4021.09765625,85,False,False
+phi3.5_only,460,ISSUE_REPLACEMENT_TICKET,4.742050886154175,4021.09765625,152,False,False
+phi3.5_only,480,ISSUE_REPLACEMENT_TICKET,4.008387804031372,4021.09765625,138,False,False
+phi3.5_only,500,ISSUE_REPLACEMENT_TICKET,2.236445903778076,4021.09765625,74,False,False
+phi3.5_only,520,ISSUE_REPLACEMENT_TICKET,3.083463191986084,4021.09765625,109,True,True
+phi3.5_only,540,ISSUE_REPLACEMENT_TICKET,2.41788649559021,4021.09765625,79,False,False
+phi3.5_only,560,ISSUE_REPLACEMENT_TICKET,2.8533198833465576,4021.09765625,92,False,False
+phi3.5_only,580,ISSUE_REPLACEMENT_TICKET,2.529003858566284,4021.09765625,86,False,False
+phi3.5_only,600,ISSUE_REPLACEMENT_TICKET,4.606499671936035,4021.09765625,154,False,False
+phi3.5_only,620,ISSUE_REPLACEMENT_TICKET,3.0793440341949463,4021.09765625,127,True,True
+phi3.5_only,640,ISSUE_REPLACEMENT_TICKET,3.421478271484375,4021.09765625,119,False,False
+phi3.5_only,660,ISSUE_REPLACEMENT_TICKET,2.458082437515259,4021.09765625,72,False,False
+phi3.5_only,680,ISSUE_REPLACEMENT_TICKET,2.665963888168335,4021.09765625,85,False,False
+phi3.5_only,700,ISSUE_REPLACEMENT_TICKET,2.247022867202759,4021.09765625,69,False,False
+phi3.5_only,720,ISSUE_REPLACEMENT_TICKET,3.897252082824707,4021.09765625,136,True,True
+phi3.5_only,740,ISSUE_REPLACEMENT_TICKET,2.656304359436035,4021.09765625,89,False,False
+phi3.5_only,760,ISSUE_REPLACEMENT_TICKET,4.038015842437744,4021.09765625,138,False,False
+phi3.5_only,780,ISSUE_REPLACEMENT_TICKET,2.21647310256958,4021.09765625,75,False,False
+phi3.5_only,800,ISSUE_REPLACEMENT_TICKET,2.961700677871704,4021.09765625,102,False,False
+phi3.5_only,820,ISSUE_REPLACEMENT_TICKET,3.954404592514038,4021.09765625,145,True,True
+phi3.5_only,840,ISSUE_REPLACEMENT_TICKET,2.284292459487915,4021.09765625,65,False,False
+phi3.5_only,860,ISSUE_REPLACEMENT_TICKET,3.0737881660461426,4021.09765625,89,False,False
+phi3.5_only,880,ISSUE_REPLACEMENT_TICKET.,2.0256800651550293,4021.09765625,56,False,False
+phi3.5_only,900,FURTHER_INVESTIGATE,3.3506412506103516,4021.09765625,124,False,False
+phi3.5_only,920,ISSUE_REPLACEMENT_TICKET,3.444087028503418,4021.09765625,130,True,True
+phi3.5_only,940,ISSUE_REPLACEMENT_TICKET,2.5533227920532227,4021.09765625,92,False,False
+phi3.5_only,960,ISSUE_REPLACEMENT_TICKET,2.6904726028442383,4021.09765625,78,False,False
+phi3.5_only,980,ISSUE_REPLACEMENT_TICKET,2.605104684829712,4021.09765625,86,False,False
+phi3.5_only,1000,ISSUE_REPLACEMENT_TICKET,2.487031936645508,4021.09765625,84,False,False
+phi3.5_only,1020,ISSUE_REPLACEMENT_TICKET,3.7217462062835693,4021.09765625,120,True,True
+phi3.5_only,1040,ISSUE_REPLACEMENT_TICKET,2.9172825813293457,4021.09765625,97,False,False
+phi3.5_only,1060,ISSUE_REPLACEMENT_TICKET,2.9571962356567383,4021.09765625,91,False,False
+phi3.5_only,1080,ISSUE_REPLACEMENT_TICKET,3.5900368690490723,4021.09765625,143,False,False
+phi3.5_only,1100,ISSUE_REPLACEMENT_TICKET,2.327317237854004,4021.09765625,69,False,False
+phi3.5_only,1120,ISSUE_REPLACEMENT_TICKET,3.4895734786987305,4021.09765625,102,True,True
+phi3.5_only,1140,ISSUE_REPLACEMENT_TICKET,2.8609321117401123,4021.09765625,105,False,False
+phi3.5_only,1160,ISSUE_REPLACEMENT_TICKET,3.5222108364105225,4021.09765625,120,False,False
+phi3.5_only,1180,ISSUE_REPLACEMENT_TICKET,3.0307259559631348,4021.09765625,102,False,False
+phi3.5_only,1200,ISSUE_REPLACEMENT_TICKET,2.0450782775878906,4021.09765625,56,False,False
+phi3.5_only,1220,ISSUE_REPLACEMENT_TICKET,2.347860813140869,4021.09765625,70,True,True
+phi3.5_only,1240,ISSUE_REPLACEMENT_TICKET,3.34272837638855,4021.09765625,114,False,False
+phi3.5_only,1260,ISSUE_REPLACEMENT_TICKET,2.7737064361572266,4021.09765625,89,False,False
+phi3.5_only,1280,ISSUE_REPLACEMENT_TICKET,2.7453784942626953,4021.09765625,93,False,False
+phi3.5_only,1300,ISSUE_REPLACEMENT_TICKET,3.2426066398620605,4021.09765625,109,False,False
+phi3.5_only,1320,ISSUE_REPLACEMENT_TICKET,2.3597476482391357,4021.09765625,74,True,True
+phi3.5_only,1340,ISSUE_REPLACEMENT_TICKET,3.246960163116455,4021.09765625,111,False,False
+phi3.5_only,1360,ISSUE_REPLACEMENT_TICKET,3.235037326812744,4021.09765625,119,False,False
+phi3.5_only,1380,ISSUE_REPLACEMENT_TICKET,2.021080493927002,4021.09765625,58,False,False
+phi3.5_only,1420,ISSUE_REPLACEMENT_TICKET,2.3071908950805664,4021.09765625,79,True,True
+phi3.5_only,1440,ISSUE_REPLACEMENT_TICKET,3.450854539871216,4021.09765625,133,False,False
+phi3.5_only,1460,ISSUE_REPLACEMENT_TICKET,3.3758652210235596,4021.09765625,122,False,False
+phi3.5_only,1480,ISSUE_REPLACEMENT_TICKET,2.3149640560150146,4021.09765625,81,False,False
+phi3.5_only,1500,ISSUE_REPLACEMENT_TICKET,2.098754405975342,4021.09765625,62,False,False
+phi3.5_only,1520,ISSUE_REPLACEMENT_TICKET,3.427954912185669,4021.09765625,81,True,True
+phi3.5_only,1540,ISSUE_REPLACEMENT_TICKET,2.8596222400665283,4021.09765625,88,False,False
+phi3.5_only,1560,ISSUE_REPLACEMENT_TICKET,2.387371301651001,4021.09765625,84,False,False
+phi3.5_only,1580,ISSUE_REPLACEMENT_TICKET,1.999767780303955,4021.09765625,57,False,False
+phi3.5_only,1600,ISSUE_REPLACEMENT_TICKET,2.5983006954193115,4021.09765625,95,False,False
+phi3.5_only,1620,ISSUE_REPLACEMENT_TICKET,2.3842122554779053,4021.09765625,77,True,True
+phi3.5_only,1640,ISSUE_REPLACEMENT_TICKET,3.165703058242798,4021.09765625,93,False,False
+phi3.5_only,1660,ISSUE_REPLACEMENT_TICKET,2.7498199939727783,4021.09765625,73,False,False
+phi3.5_only,1680,ISSUE_REPLACEMENT_TICKET,2.222791910171509,4021.09765625,66,False,False
+phi3.5_only,1700,ISSUE_REPLACEMENT_TICKET,4.922461271286011,4021.09765625,190,False,False
+phi3.5_only,1720,ISSUE_REPLACEMENT_TICKET,3.5295751094818115,4021.09765625,124,True,True
+phi3.5_only,1740,ISSUE_REPLACEMENT_TICKET,2.666314125061035,4021.09765625,86,False,False
+phi3.5_only,1760,ISSUE_REPLACEMENT_TICKET,3.189295768737793,4021.09765625,110,False,False
+phi3.5_only,1780,ISSUE_REPLACEMENT_TICKET,2.6871249675750732,4021.09765625,88,False,False
+phi3.5_only,1800,ISSUE_REPLACEMENT_TICKET,3.755216360092163,4021.09765625,139,False,False
+phi3.5_only,1820,ISSUE_REPLACEMENT_TICKET,2.4367001056671143,4021.09765625,78,True,True
+phi3.5_only,1840,ISSUE_REPLACEMENT_TICKET,2.816192388534546,4021.09765625,92,False,False
+phi3.5_only,1860,ISSUE_REPLACEMENT_TICKET,3.184669017791748,4021.09765625,116,False,False
+phi3.5_only,1880,ISSUE_REPLACEMENT_TICKET,2.76564359664917,4021.09765625,93,False,False
+phi3.5_only,1900,ISSUE_REPLACEMENT_TICKET,2.9273087978363037,4021.09765625,103,False,False
+phi3.5_only,1920,ISSUE_REPLACEMENT_TICKET,2.2629523277282715,4021.09765625,70,True,True
+phi3.5_only,1940,ISSUE_REPLACEMENT_TICKET,2.523987293243408,4021.09765625,85,False,False
+phi3.5_only,1960,ISSUE_REPLACEMENT_TICKET,2.1185452938079834,4021.09765625,69,False,False
+phi3.5_only,1980,ISSUE_REPLACEMENT_TICKET,2.7809665203094482,4021.09765625,95,False,False
+phi3.5_only,2000,ISSUE_REPLACEMENT_TICKET,2.0992414951324463,4021.09765625,60,False,False
+phi3.5_only,2020,ISSUE_REPLACEMENT_TICKET,2.8804268836975098,4021.09765625,98,True,True
+phi3.5_only,2040,ISSUE_REPLACEMENT_TICKET,1.9467813968658447,4021.09765625,55,False,False
+phi3.5_only,2060,ISSUE_REPLACEMENT_TICKET,3.3535265922546387,4021.09765625,109,False,False
+phi3.5_only,2080,ISSUE_REPLACEMENT_TICKET,2.2916557788848877,4021.09765625,72,False,False
+consensus_qwen_phi,100,RETRAIN_MODEL,6.535204529762268,5289.29296875,181,False,True
+consensus_qwen_phi,120,ISSUE_REPLACEMENT_TICKET,6.117715835571289,5289.29296875,126,True,True
+consensus_qwen_phi,140,ISSUE_REPLACEMENT_TICKET,7.116141080856323,5289.29296875,169,False,False
+consensus_qwen_phi,160,ISSUE_REPLACEMENT_TICKET,6.418893098831177,5289.29296875,153,False,False
+consensus_qwen_phi,180,RETRAIN_MODEL,6.875191926956177,5289.29296875,167,False,True
+consensus_qwen_phi,200,ISSUE_REPLACEMENT_TICKET,7.008290886878967,5289.29296875,181,False,False
+consensus_qwen_phi,220,ISSUE_REPLACEMENT_TICKET,6.046006083488464,5289.29296875,133,True,True
+consensus_qwen_phi,240,RETRAIN_MODEL,6.580373644828796,5289.29296875,209,False,True
+consensus_qwen_phi,260,RETRAIN_MODEL,6.651468276977539,5289.29296875,171,False,True
+consensus_qwen_phi,280,ISSUE_REPLACEMENT_TICKET,6.656206727027893,5289.29296875,123,False,False
+consensus_qwen_phi,320,ISSUE_REPLACEMENT_TICKET,6.670794725418091,5289.29296875,185,True,True
+consensus_qwen_phi,340,ISSUE_REPLACEMENT_TICKET,5.560033440589905,5289.29296875,111,False,False
+consensus_qwen_phi,360,ISSUE_REPLACEMENT_TICKET,6.121530175209045,5289.29296875,135,False,False
+consensus_qwen_phi,380,ISSUE_REPLACEMENT_TICKET,7.038796544075012,5289.29296875,167,False,False
+consensus_qwen_phi,400,ISSUE_REPLACEMENT_TICKET,6.954393744468689,5289.29296875,188,False,False
+consensus_qwen_phi,420,ISSUE_REPLACEMENT_TICKET,6.288194179534912,5289.29296875,165,True,True
+consensus_qwen_phi,440,RETRAIN_MODEL,5.919268846511841,5289.29296875,140,False,True
+consensus_qwen_phi,460,ISSUE_REPLACEMENT_TICKET,6.538178563117981,5289.29296875,164,False,False
+consensus_qwen_phi,480,ISSUE_REPLACEMENT_TICKET,7.028203964233398,5289.29296875,188,False,False
+consensus_qwen_phi,500,ISSUE_REPLACEMENT_TICKET,7.055699586868286,5289.29296875,205,False,False
+consensus_qwen_phi,520,ISSUE_REPLACEMENT_TICKET,6.924941897392273,5289.29296875,175,True,True
+consensus_qwen_phi,540,ISSUE_REPLACEMENT_TICKET,7.617381930351257,5289.29296875,234,False,False
+consensus_qwen_phi,560,ISSUE_REPLACEMENT_TICKET,6.516525864601135,5289.29296875,154,False,False
+consensus_qwen_phi,580,ISSUE_REPLACEMENT_TICKET,6.419443845748901,5289.29296875,164,False,False
+consensus_qwen_phi,600,ISSUE_REPLACEMENT_TICKET,7.4426023960113525,5289.29296875,245,False,False
+consensus_qwen_phi,620,ISSUE_REPLACEMENT_TICKET,6.540970683097839,5289.29296875,159,True,True
+consensus_qwen_phi,640,ISSUE_REPLACEMENT_TICKET,6.645007014274597,5289.29296875,185,False,False
+consensus_qwen_phi,660,ISSUE_REPLACEMENT_TICKET,5.819444894790649,5289.29296875,111,False,False
+consensus_qwen_phi,680,ISSUE_REPLACEMENT_TICKET,6.653361916542053,5289.29296875,165,False,False
+consensus_qwen_phi,700,ISSUE_REPLACEMENT_TICKET,6.321003675460815,5289.29296875,140,False,False
+consensus_qwen_phi,720,ISSUE_REPLACEMENT_TICKET,7.003642797470093,5289.29296875,226,True,True
+consensus_qwen_phi,740,ISSUE_REPLACEMENT_TICKET,7.181446075439453,5289.29296875,236,False,False
+consensus_qwen_phi,760,ISSUE_REPLACEMENT_TICKET,6.011959791183472,5289.29296875,145,False,False
+consensus_qwen_phi,780,ISSUE_REPLACEMENT_TICKET,5.683622717857361,5289.29296875,119,False,False
+consensus_qwen_phi,800,ISSUE_REPLACEMENT_TICKET,6.210043668746948,5289.29296875,170,False,False
+consensus_qwen_phi,820,ISSUE_REPLACEMENT_TICKET,7.310361266136169,5289.29296875,205,True,True
+consensus_qwen_phi,840,ISSUE_REPLACEMENT_TICKET,7.126285791397095,5289.29296875,218,False,False
+consensus_qwen_phi,860,ISSUE_REPLACEMENT_TICKET,6.317325830459595,5289.29296875,157,False,False
+consensus_qwen_phi,880,ISSUE_REPLACEMENT_TICKET,7.109186768531799,5289.29296875,163,False,False
+consensus_qwen_phi,900,ISSUE_REPLACEMENT_TICKET,6.819797515869141,5289.29296875,194,False,False
+consensus_qwen_phi,920,ISSUE_REPLACEMENT_TICKET,6.62331235408783,5289.29296875,143,True,True
+consensus_qwen_phi,940,ISSUE_REPLACEMENT_TICKET,6.5167399644851685,5289.29296875,156,False,False
+consensus_qwen_phi,960,ISSUE_REPLACEMENT_TICKET,5.827481627464294,5289.29296875,120,False,False
+consensus_qwen_phi,980,ISSUE_REPLACEMENT_TICKET,6.094559550285339,5289.29296875,151,False,False
+consensus_qwen_phi,1000,ISSUE_REPLACEMENT_TICKET,6.544960379600525,5289.29296875,141,False,False
+consensus_qwen_phi,1020,ISSUE_REPLACEMENT_TICKET,7.352954387664795,5289.29296875,202,True,True
+consensus_qwen_phi,1040,ISSUE_REPLACEMENT_TICKET,5.605060696601868,5289.29296875,136,False,False
+consensus_qwen_phi,1060,ISSUE_REPLACEMENT_TICKET,6.537693977355957,5289.29296875,170,False,False
+consensus_qwen_phi,1080,ISSUE_REPLACEMENT_TICKET,6.218456506729126,5289.29296875,150,False,False
+consensus_qwen_phi,1100,ISSUE_REPLACEMENT_TICKET,7.254377365112305,5289.29296875,240,False,False
+consensus_qwen_phi,1120,ISSUE_REPLACEMENT_TICKET,6.264694690704346,5289.29296875,143,True,True
+consensus_qwen_phi,1140,ISSUE_REPLACEMENT_TICKET,6.756136536598206,5289.29296875,183,False,False
+consensus_qwen_phi,1160,ISSUE_REPLACEMENT_TICKET,6.6522828340530396,5289.29296875,168,False,False
+consensus_qwen_phi,1180,ISSUE_REPLACEMENT_TICKET,6.780731916427612,5289.29296875,177,False,False
+consensus_qwen_phi,1200,ISSUE_REPLACEMENT_TICKET,6.415935516357422,5289.29296875,162,False,False
+consensus_qwen_phi,1220,ISSUE_REPLACEMENT_TICKET,6.398348689079285,5289.29296875,178,True,True
+consensus_qwen_phi,1240,ISSUE_REPLACEMENT_TICKET,6.3047696352005005,5289.29296875,167,False,False
+consensus_qwen_phi,1260,RETRAIN_MODEL,6.7858662605285645,5289.29296875,167,False,True
+consensus_qwen_phi,1280,RETRAIN_MODEL,7.034180521965027,5289.29296875,182,False,True
+consensus_qwen_phi,1300,RETRAIN_MODEL,7.018393635749817,5289.29296875,187,False,True
+consensus_qwen_phi,1320,ISSUE_REPLACEMENT_TICKET,7.514551401138306,5289.29296875,190,True,True
+consensus_qwen_phi,1340,RETRAIN_MODEL,6.803223967552185,5289.29296875,207,False,True
+consensus_qwen_phi,1360,ISSUE_REPLACEMENT_TICKET,6.638919234275818,5289.29296875,207,False,False
+consensus_qwen_phi,1380,ISSUE_REPLACEMENT_TICKET,7.275218367576599,5289.29296875,212,False,False
+consensus_qwen_phi,1420,RETRAIN_MODEL,6.674266815185547,5289.29296875,169,True,False
+consensus_qwen_phi,1440,ISSUE_REPLACEMENT_TICKET,6.5460686683654785,5289.29296875,154,False,False
+consensus_qwen_phi,1460,ISSUE_REPLACEMENT_TICKET,6.117103219032288,5289.29296875,133,False,False
+consensus_qwen_phi,1480,ISSUE_REPLACEMENT_TICKET,6.848827362060547,5289.29296875,146,False,False
+consensus_qwen_phi,1500,ISSUE_REPLACEMENT_TICKET,7.226783514022827,5289.29296875,201,False,False
+consensus_qwen_phi,1520,RETRAIN_MODEL,7.26906681060791,5289.29296875,210,True,False
+consensus_qwen_phi,1540,ISSUE_REPLACEMENT_TICKET,6.676441431045532,5289.29296875,180,False,False
+consensus_qwen_phi,1560,ISSUE_REPLACEMENT_TICKET,7.255918502807617,5289.29296875,248,False,False
+consensus_qwen_phi,1580,ISSUE_REPLACEMENT_TICKET,6.569708466529846,5289.29296875,155,False,False
+consensus_qwen_phi,1600,ISSUE_REPLACEMENT_TICKET,6.568276882171631,5289.29296875,186,False,False
+consensus_qwen_phi,1620,RETRAIN_MODEL,6.523700714111328,5289.29296875,167,True,False
+consensus_qwen_phi,1640,ISSUE_REPLACEMENT_TICKET,8.067952394485474,5289.29296875,247,False,False
+consensus_qwen_phi,1660,ISSUE_REPLACEMENT_TICKET,6.869603753089905,5289.29296875,191,False,False
+consensus_qwen_phi,1680,ISSUE_REPLACEMENT_TICKET,7.098758697509766,5289.29296875,164,False,False
+consensus_qwen_phi,1700,ISSUE_REPLACEMENT_TICKET,7.618290662765503,5289.29296875,198,False,False
+consensus_qwen_phi,1720,ISSUE_REPLACEMENT_TICKET,6.166513442993164,5289.29296875,161,True,True
+consensus_qwen_phi,1740,ISSUE_REPLACEMENT_TICKET,7.612739205360413,5289.29296875,193,False,False
+consensus_qwen_phi,1760,ISSUE_REPLACEMENT_TICKET,6.041924834251404,5289.29296875,126,False,False
+consensus_qwen_phi,1780,ISSUE_REPLACEMENT_TICKET,6.6326305866241455,5289.29296875,164,False,False
+consensus_qwen_phi,1800,ISSUE_REPLACEMENT_TICKET,6.590131044387817,5289.29296875,172,False,False
+consensus_qwen_phi,1820,ISSUE_REPLACEMENT_TICKET,6.647842288017273,5289.29296875,158,True,True
+consensus_qwen_phi,1840,ISSUE_REPLACEMENT_TICKET,6.084392666816711,5289.29296875,147,False,False
+consensus_qwen_phi,1860,ISSUE_REPLACEMENT_TICKET,6.637627601623535,5289.29296875,136,False,False
+consensus_qwen_phi,1880,ISSUE_REPLACEMENT_TICKET,7.045022249221802,5289.29296875,225,False,False
+consensus_qwen_phi,1900,ISSUE_REPLACEMENT_TICKET,6.786162495613098,5289.29296875,184,False,False
+consensus_qwen_phi,1920,ISSUE_REPLACEMENT_TICKET,6.1840842962265015,5289.29296875,143,True,True
+consensus_qwen_phi,1940,ISSUE_REPLACEMENT_TICKET,6.465898156166077,5289.29296875,181,False,False
+consensus_qwen_phi,1960,ISSUE_REPLACEMENT_TICKET,6.748854041099548,5289.29296875,185,False,False
+consensus_qwen_phi,1980,ISSUE_REPLACEMENT_TICKET,6.3143134117126465,5289.29296875,132,False,False
+consensus_qwen_phi,2000,RETRAIN_MODEL,6.066307306289673,5289.29296875,152,False,True
+consensus_qwen_phi,2020,ISSUE_REPLACEMENT_TICKET,7.336692571640015,5289.29296875,199,True,True
+consensus_qwen_phi,2040,ISSUE_REPLACEMENT_TICKET,6.249049186706543,5289.29296875,177,False,False
+consensus_qwen_phi,2060,RETRAIN_MODEL,6.860826134681702,5289.29296875,165,False,True
+consensus_qwen_phi,2080,ISSUE_REPLACEMENT_TICKET,6.575711011886597,5289.29296875,151,False,False
