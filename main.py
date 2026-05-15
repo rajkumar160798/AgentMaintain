@@ -33,6 +33,9 @@ def main():
             "shap_latency_s": None,
             "consensus_confidence": None,
             "winning_model": None,
+            "des_scores": None,
+            "fci": None,
+            "llm_bypassed": False,
         }
         
         result = app.invoke(initial_state)

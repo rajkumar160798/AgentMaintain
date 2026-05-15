@@ -56,13 +56,20 @@ PLOT_CONFIG = {
 }
 
 # Evidence-Gated LLM Routing (EGLR) thresholds
-# FCI >= fci_high_threshold  →  direct ISSUE_REPLACEMENT_TICKET (no LLM)
-# FCI <= fci_low_threshold   →  direct RETRAIN_MODEL (no LLM)
-# Otherwise                  →  invoke LLM consensus
-# Thresholds are calibrated from the empirical FCI distributions in calibrate_fci.py
+# FCI >= fci_high_threshold  ->  direct ISSUE_REPLACEMENT_TICKET (no LLM)
+# FCI <= fci_low_threshold   ->  direct RETRAIN_MODEL (no LLM)
+# Otherwise                  ->  invoke LLM consensus
+#
+# Empirically calibrated via calibrate_fci.py from traces.json (288 decisions).
+# Both fault classes have FCI ~ 0.86 (heavy overlap) because high-severity
+# injections and aggressive drift rates both produce concentrated DES vectors.
+# Calibration: fci_high = p25(sensor_failure) + 0.1 = 0.981
+#              fci_low  = p75(operational_drift)     = 0.881
+# Best F1 threshold from sweep = 0.000 (FCI has low discriminative power
+# in this dataset; EGLR provides selective bypass only at distribution extremes).
 EGLR_CONFIG = {
-    "fci_high_threshold": 0.60,
-    "fci_low_threshold":  0.15,
+    "fci_high_threshold": 0.981,
+    "fci_low_threshold":  0.881,
 }
 
 # Window-size grid for the model-free KS sensitivity analysis

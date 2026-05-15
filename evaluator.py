@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import chi2_contingency, bootstrap as scipy_bootstrap
+from scipy.stats import chi2_contingency
 from sklearn.metrics import precision_score, recall_score, f1_score, cohen_kappa_score
 from matplotlib.patches import Patch
 from matplotlib.lines import Line2D
@@ -179,6 +179,7 @@ def run_ablation(
     step_size: int = 20,
     output_dir: str = "plots",
     eglr_mode: bool = False,
+    summary_path: str = "results/summary.json",
 ):
     os.makedirs(output_dir, exist_ok=True)
 
@@ -217,6 +218,9 @@ def run_ablation(
                 "shap_latency_s": None,
                 "consensus_confidence": None,
                 "winning_model": None,
+                "des_scores": None,
+                "fci": None,
+                "llm_bypassed": False,
             }
 
             tracker.start()
@@ -284,6 +288,8 @@ def run_ablation(
                     "reasoning": reasoning,
                     "action": action,
                     "ground_truth": ground_truth,
+                    "fci": result.get("fci"),
+                    "llm_bypassed": result.get("llm_bypassed", False),
                 }
                 traces.append(trace)
 
@@ -409,9 +415,9 @@ def run_ablation(
         summary["cohens_kappa_qwen_vs_phi"] = pairwise["qwen2.5:7b_only_vs_phi3.5_only"]["cohens_kappa"]
 
     os.makedirs("results", exist_ok=True)
-    with open("results/summary.json", "w") as f:
+    with open(summary_path, "w") as f:
         json.dump(summary, f, indent=4)
-    print("Summary saved to results/summary.json")
+    print(f"Summary saved to {summary_path}")
 
     # -----------------------------------------------------------------------
     # Plot 1: Latency vs ECR with bootstrap CI error bars
@@ -666,9 +672,13 @@ if __name__ == "__main__":
                         help="Enable Evidence-Gated LLM Routing (EGLR) — DES-FCI algorithmic pre-router")
     args = parser.parse_args()
 
+    summary_path = (
+        "results/summary_eglr.json" if args.eglr else "results/summary.json"
+    )
     run_ablation(
         max_loops=5 if args.dry_run else args.max_loops,
         step_size=args.step_size,
         output_dir=args.output_dir,
         eglr_mode=args.eglr,
+        summary_path=summary_path,
     )

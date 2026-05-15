@@ -120,9 +120,9 @@ def plot_fci_distributions(df: pd.DataFrame, high_t: float, low_t: float, out_di
         ax.axvline(sub.median(), color=color, linestyle="--", linewidth=1.0)
 
     ax.axvline(high_t, color="black", linestyle="-", linewidth=2.0,
-               label=f"τ_high = {high_t:.3f}")
+               label=f"fci_high = {high_t:.3f}")
     ax.axvline(low_t,  color="gray",  linestyle="-", linewidth=2.0,
-               label=f"τ_low = {low_t:.3f}")
+               label=f"fci_low = {low_t:.3f}")
     ax.fill_betweenx([0, ax.get_ylim()[1] if ax.get_ylim()[1] > 0 else 1],
                      low_t, high_t, alpha=0.08, color="orange", label="LLM invocation band")
     ax.set_xlabel("Fault Concentration Index (FCI)")
@@ -134,12 +134,12 @@ def plot_fci_distributions(df: pd.DataFrame, high_t: float, low_t: float, out_di
     ax2 = axes[1]
     plot_df = df[df["ground_truth"].isin(palette.keys())].copy()
     order = [c for c in ["sensor_failure", "operational_drift", "normal"] if c in plot_df["ground_truth"].values]
-    sns.boxplot(data=plot_df, x="ground_truth", y="fci", order=order,
-                palette=palette, ax=ax2)
+    sns.boxplot(data=plot_df, x="ground_truth", y="fci", hue="ground_truth",
+                order=order, palette=palette, legend=False, ax=ax2)
     ax2.axhline(high_t, color="black", linestyle="--", linewidth=1.5,
-                label=f"τ_high = {high_t:.3f}")
+                label=f"fci_high = {high_t:.3f}")
     ax2.axhline(low_t,  color="gray",  linestyle="--", linewidth=1.5,
-                label=f"τ_low = {low_t:.3f}")
+                label=f"fci_low = {low_t:.3f}")
     ax2.set_title("FCI Box Plot by Ground-Truth Class")
     ax2.set_xlabel("Ground-Truth Label")
     ax2.set_ylabel("FCI")
@@ -192,7 +192,7 @@ def plot_fci_threshold_sweep(df: pd.DataFrame, out_dir: str):
     ax.plot(thresholds, f1s,        label="F1",        color="#3498db", linewidth=2)
     ax.axvline(best_t, color="black", linestyle="--",
                label=f"Best F1 threshold = {best_t:.3f} (F1={f1s[best_idx]:.3f})")
-    ax.set_xlabel("FCI Threshold (τ_high candidate)")
+    ax.set_xlabel("FCI Threshold (fci_high candidate)")
     ax.set_ylabel("Score")
     ax.set_title("FCI Threshold Sweep for Sensor-Failure Detection\n(positive class: sensor_failure)")
     ax.legend()
@@ -224,9 +224,9 @@ if __name__ == "__main__":
     high_t = calibration["suggested_fci_high_threshold"]
     low_t  = calibration["suggested_fci_low_threshold"]
 
-    print(f"\nSuggested thresholds:")
-    print(f"  τ_high (→ ISSUE_REPLACEMENT_TICKET) = {high_t}")
-    print(f"  τ_low  (→ RETRAIN_MODEL)             = {low_t}")
+    print("\nSuggested thresholds:")
+    print(f"  fci_high (-> ISSUE_REPLACEMENT_TICKET) = {high_t}")
+    print(f"  fci_low  (-> RETRAIN_MODEL)             = {low_t}")
 
     # Plots
     plot_fci_distributions(df, high_t, low_t, OUTPUT_DIR)
@@ -234,6 +234,10 @@ if __name__ == "__main__":
     if best_t is not None:
         calibration["best_f1_threshold"] = round(float(best_t), 3)
         print(f"  Best F1 threshold for fault detection = {best_t:.3f}")
+
+    print("\nNOTE: If sensor_failure and operational_drift FCI distributions overlap,")
+    print("EGLR bypass will be rare. Report this as an empirical finding.")
+    print("Update EGLR_CONFIG thresholds with values from results/fci_calibration.json")
 
     # Save calibration results
     os.makedirs(RESULTS_DIR, exist_ok=True)

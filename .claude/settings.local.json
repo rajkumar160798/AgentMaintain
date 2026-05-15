@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import json; traces=json.load\\(open\\('traces.json'\\)\\); print\\(f'traces.json: {len\\(traces\\)} entries'\\); print\\('Keys in first entry:', list\\(traces[0].keys\\(\\)\\) if traces else 'empty'\\)\")"
+    ]
+  }
+}

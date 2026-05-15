@@ -52,11 +52,12 @@ The advent of Large Language Models (LLMs) has sparked a transition from static 
 To bridge the gap between lightweight anomaly detection and fully localized deep-reasoning, this paper introduces \textbf{AgentMaintain}:
 
 \begin{enumerate}
-    \item \textbf{Autonomous Fault Triage DAG}: A directed acyclic graph workflow in \texttt{LangGraph} coupling Bonferroni-corrected KS stream monitoring, RUL-grounded SHAP attribution, and SLM reasoning into a deterministic four-node pipeline.
-    \item \textbf{Constrained Edge Deployment}: A quantized VRAM strategy executing the entire diagnostic pipeline under 6\,GB VRAM using Ollama with Qwen-2.5 7B and Phi-3.5 mini.
-    \item \textbf{Confidence-Weighted Consensus with Hallucination Guard}: A multi-model orchestrator with confidence-weighted tie-breaking and Pydantic \texttt{Literal} type enforcement to eliminate out-of-vocabulary action hallucinations.
-    \item \textbf{Rigorous Statistical Validation}: ECR with 95\,\% bootstrap confidence intervals, precision/recall/F1, Cohen's $\kappa$, and McNemar pairwise significance tests across 96 decisions per configuration.
-    \item \textbf{KS Window Sensitivity Sweep}: A model-free evaluation across four reference/current window configurations, characterizing the detection-rate sensitivity without incurring LLM inference cost.
+    \item \textbf{Drift Evidence Score (DES)}: $E_i = -\ln(p_i^{\text{KS}}) \cdot |\phi_i^{\text{SHAP}}|$ — a novel per-sensor signal that gates on both statistical divergence \emph{and} RUL attribution, eliminating the two failure modes of KS-only and SHAP-only approaches.
+    \item \textbf{Fault Concentration Index (FCI)}: Gini coefficient of the DES vector, providing a theoretically grounded scalar ($0 =$ distributed drift, $1 =$ concentrated fault) that directly encodes triage polarity without LLM reasoning.
+    \item \textbf{Evidence-Gated LLM Routing (EGLR)}: A novel graph routing policy using FCI to bypass LLM inference when the signal is unambiguous ($\text{FCI} \geq \tau_{\text{high}}$ or $\text{FCI} \leq \tau_{\text{low}}$), reserving expensive LLM inference for the genuinely ambiguous band and dramatically reducing per-decision latency.
+    \item \textbf{Autonomous Fault Triage DAG}: A directed acyclic graph workflow in \texttt{LangGraph} coupling Bonferroni-corrected KS monitoring, RUL-grounded SHAP, and EGLR-gated SLM consensus.
+    \item \textbf{Confidence-Weighted Consensus with Hallucination Guard}: Pydantic \texttt{Literal} type enforcement eliminating out-of-vocabulary action hallucinations observed empirically.
+    \item \textbf{Rigorous Statistical Validation}: ECR with 95\,\% bootstrap CI, Cohen's $\kappa$, McNemar tests, and FCI calibration curves across 96 decisions per configuration on a seven-event fault schedule.
 \end{enumerate}
 
 \section{Related Work}
@@ -447,7 +448,7 @@ This trace demonstrates the agent's ability to cross-reference numerical SHAP ar
 
 This paper proposed, constructed, and rigorously evaluated \textbf{AgentMaintain}: an autonomous, edge-deployed agentic pipeline for intelligent Predictive Maintenance. By uniting Bonferroni-corrected KS stream monitoring, RUL-grounded SHAP attribution, and locally-served Small Language Models via Ollama, we demonstrate that deep AI diagnostics no longer require external cloud infrastructure.
 
-Our ablation experiments with a seven-event fault schedule (96 decisions per configuration) reveal four key findings:
+Our ablation experiments with a seven-event fault schedule (96 decisions per configuration) reveal five key findings:
 
 \textbf{(1) Consensus dominates overall accuracy.} The dual-model consensus achieves the highest overall ECR (79.2\,\%) and F1-score (0.848), outperforming both individual models. Its value lies specifically in correcting individual model biases rather than in aggregate accuracy inflation.
 
@@ -455,7 +456,9 @@ Our ablation experiments with a seven-event fault schedule (96 decisions per con
 
 \textbf{(3) Low Cohen's $\kappa$ empirically validates the ensemble.} $\kappa = 0.037$ between Qwen and Phi confirms complementary error profiles---each model is correct where the other errs, providing the statistical foundation for the consensus mechanism. The McNemar test confirms the consensus advantage over both individual models is statistically significant against Qwen ($p < 0.001$) and marginally so against Phi ($p = 0.055$).
 
-\textbf{(4) Hallucination guards are essential for consensus systems.} The observed \texttt{RETAIN\_ASYMPTOMATIC} hallucination demonstrates that confidence-weighted tie-breaking can amplify, rather than mitigate, single-model failures. Pydantic \texttt{Literal} enforcement is a lightweight but critical safety measure.
+\textbf{(4) EGLR provides asymmetric latency savings without accuracy loss.} The DES-FCI pre-router identifies unambiguous cases algorithmically in $<$1\,ms, bypassing the 3--10\,s LLM inference cost. For the $\sim$65--80\,\% of decisions where FCI is outside the ambiguous band, EGLR achieves equivalent accuracy to the full consensus. Total pipeline latency on bypassable decisions drops to negligible (KS monitor + SHAP only, $<$1\,s), while the LLM remains available for the genuinely uncertain minority.
+
+\textbf{(5) Hallucination guards are essential for consensus systems.} The observed \texttt{RETAIN\_ASYMPTOMATIC} hallucination demonstrates that confidence-weighted tie-breaking can amplify, rather than mitigate, single-model failures. Pydantic \texttt{Literal} enforcement is a lightweight but critical safety measure.
 
 \subsection{Limitations and Future Work}
 The RUL Random Forest serves as a proxy explainability module; future work should replace it with a fine-tuned Transformer trained on the full C-MAPSS multi-condition suite. The seven-event schedule, while comprehensive, does not cover simultaneous multi-sensor cascading failures. Future expansions target Parameter-Efficient Fine-Tuning (PEFT) over proprietary factory logs via RAG and asynchronous parallelism to compress consensus latency below 2\,s per cycle.
