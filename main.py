@@ -6,14 +6,14 @@ def main():
     print("Monitoring C-MAPSS data stream for feature drift...")
     print("--------------------------------------------------")
     
-    app, monitor = build_graph(models=["qwen2.5:7b", "llama3.1:8b"], step_size=20)
+    app, monitor = build_graph(models=["qwen2.5:7b", "phi3.5"], step_size=20)
     
     loop_count = 0
     max_loops = 100 
     
     while loop_count < max_loops:
-        if monitor.current_idx and int(monitor.current_idx) > 0 and (int(monitor.current_idx) % 100 == 0):
-            monitor.inject_sensor_failure(sensor_id="sensor_14", severity=10.0)
+        # Faults will be injected after invoke in the standard simulation,
+        # but for main.py (simple testing loop) we can inject them as we advance.
 
         initial_state = {
             "current_data": {},
@@ -27,10 +27,19 @@ def main():
             "current_idx": None,
             "manual_content": None,
             "consensus": None,
-            "current_fault_type": None
+            "current_fault_type": None,
+            "monitor_latency_s": None,
+            "plan_latency_s": None,
+            "shap_latency_s": None,
+            "consensus_confidence": None,
+            "winning_model": None,
         }
         
         result = app.invoke(initial_state)
+        
+        # After invoke, monitor's stream has advanced. We inject faults on the matching current cycle.
+        if result.get("current_idx"):
+            monitor.run_fault_schedule(result.get("current_idx"))
         
         if result.get("messages") and "End of data stream reached." in result["messages"]:
             print("Data stream ended. Shutting down.")

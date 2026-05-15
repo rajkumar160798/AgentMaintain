@@ -37,8 +37,8 @@ This repository implements a practical version of the "Agentic Drift-Triage" con
 ### Prerequisites
 
 - Python 3.10+ recommended
-- A working Ollama installation with at least one of the supported models (`qwen2.5:7b`, `llama3.1:8b`, or similar)
-- The default code attempts both `qwen2.5:7b` and `llama3.1:8b`, but missing models are skipped automatically.
+- A working Ollama installation with at least one of the supported models (`qwen2.5:7b`, `phi3.5`, or similar)
+- The default code attempts both `qwen2.5:7b` and `phi3.5`, but missing models are skipped automatically.
 - The `data/CMAPSSData/` folder must contain the C-MAPSS dataset files, especially `train_FD001.txt`.
 
 ### Install Dependencies
